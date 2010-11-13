@@ -11,3 +11,5 @@
 ==Software==
  * It must be possibe not only to receive phone calls, but also to dial.
  * Both the phone part and the phone socket part should have an indication that the system is still operational.
+ * Wireless interface must permit usage of multiple telephones with one base station.
+ * Speech quality should be the same as normal wired phone lines.
