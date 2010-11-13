@@ -1,0 +1,12 @@
+=System Development=
+
+==Phone part==
+===Hardware===
+ * STLC3080: not chosen, can't create ringing signal automatically
+ * STLC3075: created especially for wireless local loops
+
+==Base Station part==
+===Hardware===
+ * AS2523: some problems to be expected with galvanic isolation to telephone network.
+ * AS2533: not chosen, has serial interface and hands free features, but no DTMF-signalling
+ * U3716MB-T: seems to be very much like the AS2523, but is not available at RS.
