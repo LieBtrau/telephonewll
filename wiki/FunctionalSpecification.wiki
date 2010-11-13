@@ -1,0 +1,13 @@
+=Functional Specification=
+
+==Hardware==
+ * It's a system to be put between the phone and the phone socket in the wall.
+ * The connection must be wireless.
+ * On both the telephone side and the phone socket side, the connection must be easily (de)attachable.
+ * Power consumption must be limited as much as possible.
+ * The system must be powered by mains power.
+ * Everything must be built in a housing to protect the electronics.
+
+==Software==
+ * It must be possibe not only to receive phone calls, but also to dial.
+ * Both the phone part and the phone socket part should have an indication that the system is still operational.
