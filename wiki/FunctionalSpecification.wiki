@@ -7,6 +7,7 @@
  * Power consumption must be limited as much as possible.
  * The system must be powered by mains power.
  * Everything must be built in a housing to protect the electronics.
+ * The base station part must be galvanically isolated from the phone line for safety reasons.
 
 ==Software==
  * It must be possibe not only to receive phone calls, but also to dial.
