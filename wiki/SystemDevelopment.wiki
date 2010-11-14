@@ -9,7 +9,7 @@
 ===Hardware===
  * AS2523: some problems to be expected with galvanic isolation to telephone network.
  * AS2533: not chosen, has serial interface and hands free features, but no DTMF-signalling
- * U3716MB-T: seems to be very much like the AS2523, but is not available at RS.
+ * U3716MB-T, U32001, U3900BM, TEA7092, TEA7540, TEA5400, TEA1098: some of these are interesting, but none of them is available.
  * Dry or wet transformer for connecting to telephone line?
   * Dry transformer can't handle DC-voltages, DC-blocking capacitors needed.
   * Wet transformers can handle DC-voltages without saturating.  They are bigger and waste that DC-current off course.
