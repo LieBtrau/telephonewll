@@ -19,3 +19,13 @@
   * Created especially for remote control by MCU.
   * Automatic ring detection to MCU
   * SOIC28: easily solderable.
+
+==CODEC==
+The voice information can be sent in an analog or a digital version to the communicating devices.  The choice is made to use digital transmission, because it's then easier to implement control codes in the data.  Embedding control codes in analog signals can be quite complicated (e.g. the analog television signal).
+This decision has the drawback that an audio CODEC is needed to convert the analog audio signal to its digital version and vice versa.
+
+Possible ICs:
+
+ * AD73311: not chosen.  It delivers 16-bit data.  There is not enough bandwidth to send 16bit data over the wireless channel at the desired sampling rate.
+ * TP3054/TP3057
+ * WM8510
