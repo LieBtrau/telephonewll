@@ -7,6 +7,7 @@
 
 ==Base Station part==
 ===Hardware===
+Search on the internet for: [http://lmgtfy.com/?q=SLIC+interface SLIC-interface] or for [http://lmgtfy.com/?q=DAA+Module DAA-module].  The components that have been investigated can be found below:
  * AS2523: 
   * some problems to be expected with galvanic isolation to telephone network.
   * not easily interfaceable by MCU.
@@ -19,6 +20,22 @@
   * Created especially for remote control by MCU.
   * Automatic ring detection to MCU
   * SOIC28: easily solderable.
+ * IA3223 + IA3222
+  * 56K-modem IC's.
+  * Interesting for data applications, not really for voice application.
+ * Si3056 + Si3018/19/10
+  * 56K-modem IC's.
+  * Interesting for data applications, not really for voice application.
+ * Si2400 + Si3015
+  * 1200bps or slower modem IC.
+  * It has a voice codec on board, but it's 14bit at 9600kHz.
+ * Si3050 + Si3019
+  * PCM interface (codec on board: 8bit/8kHz, supports µ-law and A-law)
+  * No isolation transfo needed
+  * No optocoupler needed
+  * Ring Detector output (can trigger interrupt on MCU)
+  * Caller ID detection included
+  * Available at Mouser Electronics
 
 ==CODEC==
 The voice information can be sent in an analog or a digital version to the communicating devices.  The choice is made to use digital transmission, because it's then easier to implement control codes in the data.  Embedding control codes in analog signals can be quite complicated (e.g. the analog television signal).
@@ -26,6 +43,7 @@ This decision has the drawback that an audio CODEC is needed to convert the anal
 
 Possible ICs:
 
+ * No IC: the Si3050 already includes a codec.
  * AD73311: not chosen.  It delivers 16-bit data.  There is not enough bandwidth to send 16bit data over the wireless channel at the desired sampling rate.
  * TP3054/TP3057: These devices use logarithmic PCM.  They compand an internal 13or 14-bit signal to an 8-bit signal on the digital port.  The companding algorithm works using µ-law for the TP3054 and A-law for the TP3057.   More information to be found on [http://en.wikipedia.org/wiki/G.711 ITU-T G.711]
  * WM8510
