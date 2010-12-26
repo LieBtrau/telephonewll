@@ -2,12 +2,14 @@
 
 ==Phone part==
 ===Hardware===
+Search on the internet for: [http://lmgtfy.com/?q=SLIC+interface SLIC-interface]
  * STLC3080: not chosen, can't create ringing signal automatically
  * STLC3075: created especially for wireless local loops
 
 ==Base Station part==
 ===Hardware===
-Search on the internet for: [http://lmgtfy.com/?q=SLIC+interface SLIC-interface] or for [http://lmgtfy.com/?q=DAA+Module DAA-module].  The components that have been investigated can be found below:
+Search on the internet for: [http://lmgtfy.com/?q=DAA+Module DAA-module].  
+The components that have been investigated can be found below:
  * AS2523: 
   * some problems to be expected with galvanic isolation to telephone network.
   * not easily interfaceable by MCU.
