@@ -8,11 +8,11 @@ Search on the internet for: [http://lmgtfy.com/?q=SLIC+interface SLIC-interface]
   * created especially for wireless local loops
   * it's hard to get (not available at RS, Farnell, Mouser, Digikey)
   * ST states it as an obsolete component
- * Si3210M-FT
+ * [http://www.silabs.com/Marcom%20Documents/Resources/Si3210ProductBrief.pdf Si3210M-FT]
   * active high for enabling DC for ringer
   * € 7,84 at Mouser
   * Extra Si3201-GS (€1.83) needed, or using lots of discrete components
- * SI3210-GT 
+ * [http://www.silabs.com/Marcom%20Documents/Resources/Si3210ProductBrief.pdf SI3210-GT] 
   * active low for enabling DC for ringer
   * € 7,03 at Mouser
   * Extra Si3201-GS (€1.83) needed, or using lots of discrete components
@@ -44,7 +44,7 @@ The components that have been investigated can be found below:
  * Si2400 + Si3015
   * 1200bps or slower modem IC.
   * It has a voice codec on board, but it's 14bit at 9600kHz.
- * Si3050 + Si3019
+ * [http://www.silabs.com/Marcom%20Documents/Resources/Si3050_PB.pdf Si3050 + Si3019]
   * PCM interface (codec on board: 8bit/8kHz, supports µ-law and A-law)
   * No isolation transfo needed
   * No optocoupler needed
