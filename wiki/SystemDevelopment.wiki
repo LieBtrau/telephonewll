@@ -12,7 +12,7 @@ Search on the internet for: [http://lmgtfy.com/?q=SLIC+interface SLIC-interface]
   * active high for enabling DC for ringer
   * € 7,84 at Mouser
   * Extra Si3201-GS (€1.83) needed, or using lots of discrete components
- * [http://www.silabs.com/Marcom%20Documents/Resources/Si3210ProductBrief.pdf SI3210-GT] 
+ * *[http://www.silabs.com/Marcom%20Documents/Resources/Si3210ProductBrief.pdf SI3210-GT]* 
   * active low for enabling DC for ringer
   * € 7,03 at Mouser
   * Extra Si3201-GS (€1.83) needed, or using lots of discrete components
@@ -44,7 +44,7 @@ The components that have been investigated can be found below:
  * Si2400 + Si3015
   * 1200bps or slower modem IC.
   * It has a voice codec on board, but it's 14bit at 9600kHz.
- * [http://www.silabs.com/Marcom%20Documents/Resources/Si3050_PB.pdf Si3050 + Si3019]
+ * *[http://www.silabs.com/Marcom%20Documents/Resources/Si3050_PB.pdf Si3050 + Si3019]*
   * PCM interface (codec on board: 8bit/8kHz, supports µ-law and A-law)
   * No isolation transfo needed
   * No optocoupler needed
@@ -56,12 +56,20 @@ The components that have been investigated can be found below:
 The voice information can be sent in an analog or a digital version to the communicating devices.  The choice is made to use digital transmission, because it's then easier to implement control codes in the data.  Embedding control codes in analog signals can be quite complicated (e.g. the analog television signal).
 This decision has the drawback that an audio CODEC is needed to convert the analog audio signal to its digital version and vice versa.
 
+There is also need of a compression algorithm.  If voice is digitized at 8kHz (8bit), this will give an audio stream of 64kpbs, which is simply too much to send over a wireless channel.
+ * Jennic has its JN5319 that transfers speech over an IEEE802.15.4.  The sampling frequency and resolution are selectable.  A sampling rate of 8kHz at a 16bit resolution lead to a raw bit rate of 128kbps.  By use of ADPCM this is reduced by a factor four to 32kbps.  A WM8510 audio codec is used for that job.
+ * [http://en.wikipedia.org/wiki/G.729 ITU-T G.729a(8kbps)] which is used most in VoIP.
+
 Possible ICs:
 
  * No IC: the Si3050 already includes a codec.
  * AD73311: not chosen.  It delivers 16-bit data.  There is not enough bandwidth to send 16bit data over the wireless channel at the desired sampling rate.
- * TP3054/TP3057: These devices use logarithmic PCM.  They compand an internal 13or 14-bit signal to an 8-bit signal on the digital port.  The companding algorithm works using µ-law for the TP3054 and A-law for the TP3057.   More information to be found on [http://en.wikipedia.org/wiki/G.711 ITU-T G.711]
- * WM8510
+ * TP3054/TP3057: These devices use logarithmic PCM.  
+  * They compand an internal 13or 14-bit signal to an 8-bit signal on the digital port.  
+  * The companding algorithm works using µ-law for the TP3054 and A-law for the TP3057.   
+  * More information to be found on [http://en.wikipedia.org/wiki/G.711 ITU-T G.711].  
+  * This functionality is already included in Si3050+Si3019.
+ * [http://www.wolfsonmicro.com/products/codecs/WM8510/ WM8510]
 
 ==Software==
 RTP-protocol can carry G.711 data.  The RTP-protocol gives too much overhead to implement in a simple microcontroller.  A complete IP-stack should be prevented.
@@ -69,11 +77,16 @@ RTP-protocol can carry G.711 data.  The RTP-protocol gives too much overhead to 
  * [http://tools.ietf.org/html/rfc5391 RFC5391 RTP Payload Format for G.711.1]
  * [http://www.itu.int/rec/T-REC-G.191/en ITU-T Rec.G.191]
 
+==Operating System==
+ * TinyOS targets wireless sensor networks, such as IEEE802.15.4
+
 ==Personal Area Network==
  * IEEE802.15.4
   * Low cost modules available
   * Low power (only 1/3 of Bluetooth)
   * Fast wake-up from sleep (tens of milliseconds)
+  * Non-beacon & beacon mode (non-beacon mode seems to be faster)
+  * 81 bytes/packet available for upper OSI-layers
  * DASH7
   * Very new, nothing available yet (anno 2011)
  * Bluetooth
