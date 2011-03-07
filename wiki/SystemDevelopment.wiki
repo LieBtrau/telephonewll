@@ -86,11 +86,38 @@ RTP-protocol can carry G.711 data.  The RTP-protocol gives too much overhead to 
   * Low power (only 1/3 of Bluetooth)
   * Fast wake-up from sleep (tens of milliseconds)
   * Non-beacon & beacon mode (non-beacon mode seems to be faster)
+   * Beacon: routers send beacon signal at regular intervals.  All nodes must be awake at that instant in order to receive it.  Precise timing is needed for intervals.
+   * Non-beacon: no device needs to be awake regularly.
   * 81 bytes/packet available for upper OSI-layers
+  * 2.4GHz-band -> 250kbps (over the air rate)
+  * 868MHz-band -> 20kbps (over the air rate)
+ * Zigbee
+  * Uses IEEE802.15.4 for the lower OSI)layers
+  * Three types of devices: coordinators, routers & endpoints
+ * Zigbee Pro
+  * Zigbee pro offers multicasting, sharing secret keys.
+  * Zigbee pro is backwards compatible with Zigbee
  * DASH7
   * Very new, nothing available yet (anno 2011)
+  * DASH7 module 500kbps over-the-air at 433MHz (only one module found)
  * Bluetooth
   * Slow wakeup from sleep (typically 3 seconds)
   * Originally designed to replace RS232 cables -> simple implementation.
  * Z-Wave
   * Too slow (only 40kbps)
+
+==Wireless modules==
+
+Microchip IEEE802.15.4 modules:
+
+||Product Family	||Sensitivity dBm	||Power Output dBm	||RSSI	||TX Power Consumption mA	||RX Power Consumption mA	||Clock	||Sleep	||MAC	||MAC Features	||Encryption	||Interface	||Pin Count	||
+||MRF24J40MA	||-95.00		||0.00			||Yes	||23.00			||19.00			||20 MHz	||Yes	||Yes	||CSMA-CA		||AES128		||4-wire SPI	||12		||
+||MRF24J40MB	||-102.00		||20.00			||Yes	||120.00			||25.00			||20 MHz	||Yes	||Yes	||CSMA-CA		||AES128		||4-wire SPI	||12		||
+
+These modules can handle Zigbee, but that's not necessary.  Because some people find Zigbee too complex, Microchip has its own lightweight (small) protocol stack (MiWi).
+
+RS: overview of Zigbee modules (sorting ascending on price):
+ * Microchip's modules are cheapest, no stack included, it's only a radio -> Use MiWi (30kbps) or Zigbee or ...
+ * Telegesis: stack included datarate: 20kbps.
+ * Atmel: zigbit: only a radio: 2 protocol stacks available
+ * XBee: protocol stack included. (cheapest bij Mouser)
