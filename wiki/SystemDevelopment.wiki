@@ -92,11 +92,16 @@ RTP-protocol can carry G.711 data.  The RTP-protocol gives too much overhead to 
   * 2.4GHz-band -> 250kbps (over the air rate)
   * 868MHz-band -> 20kbps (over the air rate)
  * Zigbee
-  * Uses IEEE802.15.4 for the lower OSI)layers
+  * Uses IEEE802.15.4 for the lower OSI-layers
   * Three types of devices: coordinators, routers & endpoints
  * Zigbee Pro
   * Zigbee pro offers multicasting, sharing secret keys.
   * Zigbee pro is backwards compatible with Zigbee
+ * RF4CE
+  * Uses IEEE802.15.4 for the lower OSI-layers
+  * Designed to replace remote controls, but it has already been used to make phone calls with it.  See [http://www.google.be/url?sa=t&source=web&cd=1&ved=0CB4QtwIwAA&url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DNhzwm5vgUPc&ei=KADcTYyNNcqeOuTuyfcO&usg=AFQjCNHdgcaPxPAbvCjx5rINE4rpEvgiiw YouTube].
+  * Supported by different manufacturers: TI (RemoTI), FreeScale (Beestack Consumer), Renesas, ...
+  * Smaller code size than Zigbee (because mesh-networking is not needed)
  * DASH7
   * Very new, nothing available yet (anno 2011)
   * DASH7 module 500kbps over-the-air at 433MHz (only one module found)
@@ -105,7 +110,6 @@ RTP-protocol can carry G.711 data.  The RTP-protocol gives too much overhead to 
   * Originally designed to replace RS232 cables -> simple implementation.
  * Z-Wave
   * Too slow (only 40kbps)
-
 ==Wireless modules==
 
 Microchip IEEE802.15.4 modules:
