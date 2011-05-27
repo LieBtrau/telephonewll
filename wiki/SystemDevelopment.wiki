@@ -100,7 +100,7 @@ RTP-protocol can carry G.711 data.  The RTP-protocol gives too much overhead to 
  * RF4CE
   * Uses IEEE802.15.4 for the lower OSI-layers
   * Designed to replace remote controls, but it has already been used to make phone calls with it.  See [http://www.google.be/url?sa=t&source=web&cd=1&ved=0CB4QtwIwAA&url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DNhzwm5vgUPc&ei=KADcTYyNNcqeOuTuyfcO&usg=AFQjCNHdgcaPxPAbvCjx5rINE4rpEvgiiw YouTube].
-  * Supported by different manufacturers: TI (RemoTI), FreeScale (Beestack Consumer), Renesas, ...
+  * Supported by different manufacturers: TI (RemoTI), FreeScale (Beestack Consumer), Renesas, [http://www.st.com/internet/evalboard/product/247094.jsp ST], ...
   * Smaller code size than Zigbee (because mesh-networking is not needed)
  * DASH7
   * Very new, nothing available yet (anno 2011)
