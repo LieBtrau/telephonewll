@@ -1,7 +1,7 @@
 #summary One-sentence summary of this page.
 
 = Phase 1: Developing telephone interface =
-The design of [http://code.google.com/p/openusbfxs/ OpenUsbFxs], as well as the numerous Silicon Labs application notes, were a good starting point for me.
+The design of [http://code.google.com/p/openusbfxs/  OpenUsbFxs], as well as the numerous Silicon Labs application notes, were a good starting point for me.
 I calculated some component values for the interface myself, but I'll start by using the OpenUsbFxs schematic.  Just to be sure.
 
 The hardware implementation will be different, because I will be using an [http://lpcxpresso.code-red-tech.com/LPCXpresso/ LPCXpresso-board], not a PIC-microcontroller.  So I need to create a baseboard for the LPCExpresso.  
