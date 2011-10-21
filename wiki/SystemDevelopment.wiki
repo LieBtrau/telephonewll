@@ -45,7 +45,7 @@ The components that have been investigated can be found below:
   * 1200bps or slower modem IC.
   * It has a voice codec on board, but it's 14bit at 9600kHz.
  * *[http://www.silabs.com/Marcom%20Documents/Resources/Si3050_PB.pdf Si3050 + Si3019]*
-  * PCM interface (codec on board: 8bit/8kHz, supports µ-law and A-law)
+  * PCM interface ([http://en.wikipedia.org/wiki/G.711 ITU-T G.711] codec on board: 8bit/8kHz, supports µ-law and A-law)
   * No isolation transfo needed
   * No optocoupler needed
   * Ring Detector output (can trigger interrupt on MCU)
@@ -62,7 +62,7 @@ There is also need of a compression algorithm.  If voice is digitized at 8kHz (8
 
 Possible ICs:
 
- * No IC: the Si3050 already includes a codec.
+ * No IC: the Si3050 already includes a [http://en.wikipedia.org/wiki/G.711 ITU-T G.711] codec.
  * AD73311: not chosen.  It delivers 16-bit data.  There is not enough bandwidth to send 16bit data over the wireless channel at the desired sampling rate.
  * TP3054/TP3057: These devices use logarithmic PCM.  
   * They compand an internal 13or 14-bit signal to an 8-bit signal on the digital port.  
@@ -70,6 +70,7 @@ Possible ICs:
   * More information to be found on [http://en.wikipedia.org/wiki/G.711 ITU-T G.711].  
   * This functionality is already included in Si3050+Si3019.
  * [http://www.wolfsonmicro.com/products/codecs/WM8510/ WM8510]
+ * [http://en.wikipedia.org/wiki/Comparison_of_audio_codecs Several audio codecs on Wikipedia]
 
 ==Software==
 RTP-protocol can carry G.711 data.  The RTP-protocol gives too much overhead to implement in a simple microcontroller.  A complete IP-stack should be prevented.
