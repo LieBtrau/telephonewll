@@ -127,29 +127,21 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 
-[GeneratedDocument1]
-DocumentPath=Project Outputs for PotsDuino\Design Rule Check - BRD110731.html
-DItemRevisionGUID=
-
-[GeneratedDocument2]
-DocumentPath=Project Outputs for PotsDuino\Move Component(s) Origin To Grid - BRD110731.html
-DItemRevisionGUID=
-
 [Parameter1]
-Name=ProjectName
-Value=POTSduino
+Name=DrawnByX
+Value=CT
 
 [Parameter2]
-Name=RevisionNr
-Value=0
-
-[Parameter3]
 Name=PCB_Nr
 Value=BRD111107/0
 
+[Parameter3]
+Name=ProjectName
+Value=POTSduino
+
 [Parameter4]
-Name=DrawnByX
-Value=CT
+Name=RevisionNr
+Value=0
 
 [PCBConfiguration1]
 ReleaseItemId=
