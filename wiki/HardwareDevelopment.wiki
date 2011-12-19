@@ -4,7 +4,7 @@
 The design of [http://code.google.com/p/openusbfxs/  OpenUsbFxs], as well as the numerous Silicon Labs application notes, were a good starting point for me.
 I calculated some component values for the interface myself, but I'll start by using the OpenUsbFxs schematic.  Just to be sure.
 
-The hardware implementation will be different, because I will be using an [http://lpcxpresso.code-red-tech.com/LPCXpresso/ LPCXpresso-board], not a PIC-microcontroller.  So I need to create a baseboard for the LPCExpresso.  
+The hardware implementation will be different, because I will be using an [http://lpcxpresso.code-red-tech.com/LPCXpresso/ LPCXpresso-board], not a PIC-microcontroller.  So I need to create a baseboard for the LPCXpresso.  
 
 In order to create a more open hardware platform, I decided to design the POTS-interface as an Arduino-shield.
 It could also be used for Arduino users (if they want to create software drivers for it).  Maybe an idea for [http://code.google.com/p/potsduino/ POTSduino]?
