@@ -1,0 +1,38 @@
+
+The software will be based on the [http://code.google.com/p/openusbfxs/ openusbfxs].
+
+The system consists of three blocks:
+ * SI3210 chip POTS-interface
+ * LPCXpresso
+ * PC
+
+These three blocks are connected using interfaces:
+
+=Interfaces=
+==Interfase SI3210 to LPCXpresso==
+
+==Interface LPCXpresso to PC==
+Command list:
+ * READ_VERSION
+  * reads the software version of the embedded code of the LPCXpresso.
+ * PROSLIC_WDIRECT
+  * checks if the addressed direct register is valid
+  * write 8bit data to a control (=direct) register
+  * this function automatically calls PROSLIC_RDIRECT, so that it's checked that the byte has actually been written.
+ * PROSLIC_RDIRECT
+  * checks if the addressed direct register is valid
+  * read 8bit data from a control (=direct) register
+ * PROSLIC_WRINDIR
+  * write data to an indirect register
+  * this function automatically calls PROSLIC_RDINDIR, so that it's checked that the byte has actually been written.
+ * PROSLIC_RDINDIR
+  * read data from an indirect register
+  * the register address will be returned as well.
+ * PROSLIC_INIT
+  * reset the PROSLIC and initialize it afterwards.
+ * PROSLIC_WRPCM
+  * write PCM-data to the PROSLIC
+  * this data will be (most often digitized voice) data coming from the PC.
+ * PROSLIC_RDPCM
+  * read PCM-data from the PROSLIC
+  * this data comes from the phone connected to the PROSLIC
