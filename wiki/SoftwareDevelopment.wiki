@@ -1,4 +1,3 @@
-
 The software will be based on the [http://code.google.com/p/openusbfxs/ openusbfxs].
 
 The system consists of three blocks:
@@ -36,3 +35,6 @@ Command list:
  * PROSLIC_RDPCM
   * read PCM-data from the PROSLIC
   * this data comes from the phone connected to the PROSLIC
+
+Remark that the [http://code.google.com/p/openusbfxs/ openusbfxs] doesn't have a PROSLIC_WRPCM or PROSLIC_RDPCM command.  That's because they put the USB-connection into isochronous mode.  At regular time intervals, data is "automatically" transferred between PC and openusbfxs.  There's no need for the PC to poll for data regularly.
+In their project, the isochronous mode is not only used to transfer PCM-data, but also to set the registers of the PROSLIC.
