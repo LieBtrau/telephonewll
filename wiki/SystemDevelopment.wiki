@@ -51,6 +51,11 @@ The components that have been investigated can be found below:
   * Ring Detector output (can trigger interrupt on MCU)
   * Caller ID detection included
   * Available at Mouser Electronics
+ * 73M1906B + 73M1916
+  * Isolation transfo needed
+  * Caller ID detection included
+  * Available at Mouser Electronics
+  * PCM-interface
 
 ==CODEC==
 The voice information can be sent in an analog or a digital version to the communicating devices.  The choice is made to use digital transmission, because it's then easier to implement control codes in the data.  Embedding control codes in analog signals can be quite complicated (e.g. the analog television signal).
