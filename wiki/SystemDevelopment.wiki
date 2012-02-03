@@ -35,6 +35,8 @@ The components that have been investigated can be found below:
   * Created especially for remote control by MCU.
   * Automatic ring detection to MCU
   * SOIC28: easily solderable.
+  * keyboard scanning interface
+  * no access to digitized voice, no PCM-interface
  * IA3223 + IA3222
   * 56K-modem IC's.
   * Interesting for data applications, not really for voice application.
