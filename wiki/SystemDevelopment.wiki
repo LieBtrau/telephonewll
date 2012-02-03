@@ -51,7 +51,7 @@ The components that have been investigated can be found below:
   * Ring Detector output (can trigger interrupt on MCU)
   * Caller ID detection included
   * Available at Mouser Electronics
- * 73M1906B + 73M1916
+ * [http://www.maxim-ic.com/datasheet/index.mvp/id/6806 73M1966B = 73M1906B + 73M1916]
   * Isolation transfo needed
   * Caller ID detection included
   * Available at Mouser Electronics
