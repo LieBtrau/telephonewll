@@ -1,0 +1,17 @@
+# What development tool to use?
+
+ * [http://gandalf.arubi.uni-kl.de/avr_projects/arm_projects/#winarm WinARM]
+ * [http://www.gnuarm.com/ GNUARM]
+ * [http://www.yagarto.de/ YAGARTO]
+ * [http://www.code-red-tech.com/lpcxpresso.php Code Red]
+ * [http://www.coocox.org/CooCox_CoIDE.htm CoIDE]
+  * Can use LPC-link: see [http://www.coocox.org/Forum/topic.php?id=741 Coocox Forum]
+
+# What kernel to use?
+ * uKOS
+ * chibiOS
+ * TNKernel
+ * Segger embOS
+ * Micriµm µC
+ * Ethernut
+ * [http://nuttx.sourceforge.net/ NuttX]
