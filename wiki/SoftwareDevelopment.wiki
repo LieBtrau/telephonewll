@@ -1,3 +1,7 @@
+=Tools=
+[DevelopmentTools]
+
+=Development=
 The software will be based on the [http://code.google.com/p/openusbfxs/ openusbfxs].
 
 The system consists of three blocks:
