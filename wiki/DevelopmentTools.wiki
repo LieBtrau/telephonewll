@@ -3,6 +3,7 @@
  * [http://gandalf.arubi.uni-kl.de/avr_projects/arm_projects/#winarm WinARM]
  * [http://www.gnuarm.com/ GNUARM]
  * [http://www.yagarto.de/ YAGARTO]
+  * Doesn't contain IDE, but Eclipse is proposed.
  * [http://www.code-red-tech.com/lpcxpresso.php Code Red]
   * Even the "getting started" didn't work without problems
    * Can't find project in zip-files
