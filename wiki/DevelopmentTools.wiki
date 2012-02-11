@@ -4,6 +4,9 @@
  * [http://www.gnuarm.com/ GNUARM]
  * [http://www.yagarto.de/ YAGARTO]
  * [http://www.code-red-tech.com/lpcxpresso.php Code Red]
+  * Even the "getting started" didn't work without problems
+   * Can't find project in zip-files
+   * Examples don't debug (header files not found)
  * [http://www.coocox.org/CooCox_CoIDE.htm CoIDE]
   * Can use LPC-link: see [http://www.coocox.org/Forum/topic.php?id=741 Coocox Forum]
 
