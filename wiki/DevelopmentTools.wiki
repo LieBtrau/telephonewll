@@ -2,6 +2,7 @@
 
  * [http://gandalf.arubi.uni-kl.de/avr_projects/arm_projects/#winarm WinARM]
  * [http://www.gnuarm.com/ GNUARM]
+  * Seems to be dead.  No more updates after 2006.
  * [http://www.yagarto.de/ YAGARTO]
   * Doesn't contain IDE, but Eclipse is proposed.
   * The "Howto" actually works!
@@ -22,4 +23,5 @@
  * Segger embOS
  * Micriµm µC
  * Ethernut
- * [http://nuttx.sourceforge.net/ NuttX]
+ * [http://nuttx.sourceforge.net/ NuttX
+  * On Windows, Cygwin packages need to be installed -> time consuming.
