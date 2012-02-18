@@ -55,7 +55,7 @@ export TOOLCHAIN_BIN="${WD}/../buildroot/build_arm_nofpu/staging_dir/bin"
  # Save the file and close it.
  # Go back to rxvt.
  # `cd /cygdrive/c/nxp/buildroot`
- # `cp configs/arm7tdmi-defconfig-4.3.3 .config`    
+ # `cp configs/cortexm3-defconfig-4.3.3 .config`    
   * Remark there's a space between the "4.3.3" and the ".config"
  # `make oldconfig`
   * Don't change any option unless you know what you're doing.
