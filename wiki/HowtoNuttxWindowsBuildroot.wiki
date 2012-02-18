@@ -24,9 +24,8 @@ The procedure below describes how to set up your ARM toolchain for building Nutt
     * configs
     * ...
  # Right-click "C:\cygwin\bin\rxvt.exe" and run it as Administrator.  rxvt is a command shell.  All commands following here, must be typed in that command shell.
- # `cd /cygdrive/c/nxp/nuttx`
+ # `cd /cygdrive/c/nxp/nuttx/tools`
  # Set up which board program you want to develop.  Here it's the ostest for the lpcxpresso board
-  * `cd tools`
   * `./configure.sh lpcxpresso-lpc1768/ostest`
  # Open "c:\nxp\nuttx\.config" using textpad,or some other program that can open/save files in Unix format.
  # Enable buildroot in the toolchain and linker options section:
@@ -55,7 +54,7 @@ export TOOLCHAIN_BIN="${WD}/../buildroot/build_arm_nofpu/staging_dir/bin"
 }}}
  # Save the file and close it.
  # Go back to rxvt.
- # `cd ../buildroot`
+ # `cd /cygdrive/c/nxp/buildroot`
  # `cp configs/arm7tdmi-defconfig-4.3.3 .config`    
   * Remark there's a space between the "4.3.3" and the ".config"
  # `make oldconfig`
