@@ -1,0 +1,64 @@
+Building NuttX under Windows can be quite challenging, because NuttX has been designed for Linux environments.
+Running Windows, using Cygwin is the closest we can get to that environment.
+The procedure below describes how to set up your ARM toolchain for building NuttX.
+
+ # Download Cygwin-packages
+ # Install Cygwin in c:\cygwin
+ # Add c:\cygwin\bin IN FRONT OF your windows PATH variable.
+  * Control Panel -> System -> Advanced System Settings -> Environment Variables... -> System Variables -> Path
+  * Test if you did this correctly by opening a command prompt and typing "find".  The find-function of cygwin should be executed now, not the windows "find".
+  * The cygwin "find" will start showing a lot of paths.  Press Ctrl-C to stop it. The Windows "find" will say that some parameter is missing.
+ # Download buildroot and nuttx
+ # Unpack both tar-files to a directory without spaces, like c:\nxp
+ # Remove the version names from the buildroot and nuttx directories.
+ # Now you will have a directory view like:
+  * c:\nxp\
+   * buildroot
+    * configs
+    * package
+    * toolchain
+    * ...
+   * nuttx
+    * arch
+    * binfmt
+    * configs
+    * ...
+ # Right-click "C:\cygwin\bin\rxvt.exe" and run it as Administrator.  rxvt is a command shell.  All commands following here, must be typed in that command shell.
+ # `cd /cygdrive/c/nxp/nuttx`
+ # Set up which board program you want to develop.  Here it's the ostest for the lpcxpresso board
+  * `cd tools`
+  * `./configure.sh lpcxpresso-lpc1768/ostest`
+ # Open "c:\nxp\nuttx\.config" using textpad,or some other program that can open/save files in Unix format.
+ # Enable buildroot in the toolchain and linker options section:
+{{{
+#
+# Identify toolchain and linker options
+#
+CONFIG_LPC17_CODESOURCERYW=n
+CONFIG_LPC17_CODESOURCERYL=n
+CONFIG_LPC17_DEVKITARM=n
+CONFIG_LPC17_BUILDROOT=y
+CONFIG_LPC17_CODEREDW=n
+CONFIG_LPC17_CODEREDL=n
+}}}
+ # Save the file and close it.
+ # Open "c:\nxp\nuttx\setenv.sh" using textpad,or some other program that can open/save files in Unix format.  Now we also change the toolchain section here:
+{{{
+# This is where the buildroot might reside on a Linux or Cygwin system
+export TOOLCHAIN_BIN="${WD}/../buildroot/build_arm_nofpu/staging_dir/bin"
+
+# This is the default install location for Code Red on Linux
+# export TOOLCHAIN_BIN="/usr/local/LPCXpresso/tools/bin"
+
+# This the Cygwin path to the LPCXpresso 3.6 install location under Windows
+#export TOOLCHAIN_BIN="/cygdrive/c/nxp/lpcxpresso_3.6/Tools/bin"
+}}}
+ # Save the file and close it.
+ # Go back to rxvt.
+ # `cd ../buildroot`
+ # `cp configs/arm7tdmi-defconfig-4.3.3 .config`    
+  * Remark there's a space between the "4.3.3" and the ".config"
+ # `make oldconfig`
+  * Don't change any option unless you know what you're doing.
+ # `make`
+  * When you've done everything right, then this command will start building your ARM-toolchain.  This will take a while...and a while...
