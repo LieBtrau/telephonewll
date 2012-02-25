@@ -70,6 +70,7 @@ export TOOLCHAIN_BIN="${WD}/../buildroot/build_arm_nofpu/staging_dir/bin"
 
 =Building your application=
  # `cd /cygdrive/c/nxp/nuttx`
+ # `. ./setenv.sh`
  # `make`
 
 =Debugging your application=
