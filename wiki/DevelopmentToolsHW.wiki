@@ -1,0 +1,8 @@
+Open source debuggers work with GDB and OpenOCD.  Different hardware solutions are possible:
+
+ * [http://www.amontec.com/jtagkey-tiny.shtml JTAGkey-Tiny]: supports Cortex M3, 6MHz, Linux support, Cost=€29
+ * [http://www.olimex.com/dev/arm-usb-tiny-h.html arm-usb-tiny-h], 30MHz, should be possible to use on Linux, but problems have been reported, Cost=€40
+ * [http://www.coocox.org/Colink.htm CoLink]: supports Cortex M3, DIY, only for Windows.
+ * [http://be.farnell.com/segger/j-link-edu/debugger-arm-jtag-usb-educational/dp/2061343 J-Link Edu]: seems to be possible to use it on Linux, but no official support, €47 
+ * [http://www.joernonline.de/ OOCDLink]:DIY
+
