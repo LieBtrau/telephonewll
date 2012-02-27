@@ -1,6 +1,6 @@
 =Tools=
-[DevelopmentTools Development tools: Software]
-[DevelopmentToolsHW Development tools: Hardware]
+ * [DevelopmentTools Development tools: Software]
+ * [DevelopmentToolsHW Development tools: Hardware]
 
 =Development=
 The software will be based on the [http://code.google.com/p/openusbfxs/ openusbfxs].
