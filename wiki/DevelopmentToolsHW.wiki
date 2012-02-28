@@ -5,4 +5,6 @@ Open source debuggers work with GDB and OpenOCD.  Different hardware solutions a
  * [http://www.coocox.org/Colink.htm CoLink]: supports Cortex M3, DIY, only for Windows.
  * [http://be.farnell.com/segger/j-link-edu/debugger-arm-jtag-usb-educational/dp/2061343 J-Link Edu]: seems to be possible to use it on Linux, but no official support, €47 
  * [http://www.joernonline.de/ OOCDLink]:DIY
-
+ * [http://www.macraigor.com/usbWiggler.htm USB Wiggler]: Linux support, Cortex M3 supported, USB Hi-speed, cost $250
+= Datasheets = 
+ * [http://ics.nxp.com/support/documents/microcontrollers/pdf/lpcxpresso.lpc1769.schematic.pdf LPCXpresso LPC1769 complete schematic]
