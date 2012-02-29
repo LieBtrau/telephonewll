@@ -47,7 +47,7 @@ export TOOLCHAIN_BIN="/usr/local/LPCXpresso/tools/bin"
 # This the Cygwin path to the LPCXpresso 3.6 install location under Windows
 #export TOOLCHAIN_BIN="/cygdrive/c/nxp/lpcxpresso_3.6/Tools/bin"
 }}}
- # Replace the `/usr/local/LPCXpresso/tools/bin` by the correct path to your /tools/bin directory of your Code Red installation.
+ # Replace the `/usr/local/LPCXpresso/tools/bin` by the correct path to your /tools/bin directory of your Code Red installation (e.g. "/usr/local/lpcxpresso_4.1.5_187/lpcxpresso/tools/bin")
  # Save the file and close it.
 
 =Building your application=
