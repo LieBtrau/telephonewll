@@ -8,3 +8,8 @@ Open source debuggers work with GDB and OpenOCD.  Different hardware solutions a
  * [http://www.macraigor.com/usbWiggler.htm USB Wiggler]: Linux support, Cortex M3 supported, USB Hi-speed, cost $250
 = Datasheets = 
  * [http://ics.nxp.com/support/documents/microcontrollers/pdf/lpcxpresso.lpc1769.schematic.pdf LPCXpresso LPC1769 complete schematic]
+
+= Connecting debugger = 
+If you don't want to use the LPC-Link, you have two options:
+ # Use a saw and separate the LPC-Link from the LPCXpresso.  In this case, you'll have to provide a 3V3-supply to the VIO_3V3X pin of the LPCXpresso, because you can't use the 3V3-supply on the LPC-Link (chip U10) any longer.
+ # If you have more space in your application, you can leave the LPC-Link on, but you have to open all solder jumpers on J4, except 1-2, 13-14 and 15-16.  So your LPCXpresso will still get it's 3V3 power from the LPC-Link.
