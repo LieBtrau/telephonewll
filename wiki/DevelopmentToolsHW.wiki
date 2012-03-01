@@ -8,6 +8,8 @@ Open source debuggers work with GDB and OpenOCD.  Different hardware solutions a
  * [http://www.macraigor.com/usbWiggler.htm USB Wiggler]: Linux support, Cortex M3 supported, USB Hi-speed, cost $250
 = Datasheets = 
  * [http://ics.nxp.com/support/documents/microcontrollers/pdf/lpcxpresso.lpc1769.schematic.pdf LPCXpresso LPC1769 complete schematic]
+ * [http://ics.nxp.com/products/lpc1000/datasheet/lpc1763.lpc1764.lpc1765.lpc1766.lpc1767.lpc1768.lpc1769.pdf LPC1769 datasheet]
+ * [http://ics.nxp.com/support/documents/microcontrollers/?scope=LPC1769&type=user LPC1769 user manual]
 
 = Connecting debugger = 
 If you don't want to use the LPC-Link, you have two options:
