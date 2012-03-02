@@ -1,19 +1,15 @@
-Building NuttX under Windows can be quite challenging, because NuttX has been designed for Linux environments.
-Running Windows, using Cygwin is the closest we can get to that environment.
-The procedure below describes how to set up your ARM toolchain for building NuttX.
+Make it easy for yourself.  Install Linux (you'll be amazed how easy that is) and compile your code.
 
-=Building your toolchain=
- # Download Cygwin-packages
- # Install Cygwin in c:\cygwin
- # Add c:\cygwin\bin IN FRONT OF your windows PATH variable.
-  * Control Panel -> System -> Advanced System Settings -> Environment Variables... -> System Variables -> Path
-  * Test if you did this correctly by opening a command prompt and typing "find".  The find-function of cygwin should be executed now, not the windows "find".
-  * The cygwin "find" will start showing a lot of paths.  Press Ctrl-C to stop it. The Windows "find" will say that some parameter is missing.
- # Download buildroot and nuttx and the applications of nuttx
- # Unpack both tar-files to a directory without spaces, like c:\nxp
- # Remove the version names from the buildroot, apps and nuttx directories.
+=Compiling using Buildroot for Linux=
+ # Open the package manager of your Linux installation and install:
+  # libgmp-dev
+  # libmpfr-dev
+  # zlib1g-dev
+ # Download buildroot from the nuttx website, nuttx and the applications of nuttx
+ # Unpack the three tar-files to a directory without spaces, like /home/nxp
+ # Remove the version names from the apps, buildroot and nuttx directories.
  # Now you will have a directory view like:
-  * c:\nxp\
+  * /home/nxp
    * apps
     * examples
     * graphics
@@ -23,18 +19,16 @@ The procedure below describes how to set up your ARM toolchain for building Nutt
     * configs
     * package
     * toolchain
-    * ...
    * nuttx
     * arch
     * binfmt
     * configs
     * ...
- # Right-click "C:\cygwin\bin\rxvt.exe" and run it as Administrator.  rxvt is a command shell.  All commands following here, must be typed in that command shell.
- # `cd /cygdrive/c/nxp/nuttx/tools`
- # Set up which board program you want to develop.  Here it's the nsh for the lpcxpresso board
+ # `cd ./nxp/nuttx/tools`
+ # Set up which board program you want to develop.  Here it's the "nsh" application for the lpcxpresso board
   * `./configure.sh lpcxpresso-lpc1768/nsh`
- # Open "c:\nxp\nuttx\.config" using textpad,or some other program that can open/save files in Unix format.
- # Enable buildroot in the toolchain and linker options section:
+ # Open "/nxp/nuttx/.config" using nano,or some other text editor
+ # Check that Buildroot for Linux is enabled in the toolchain and linker options section:
 {{{
 #
 # Identify toolchain and linker options
@@ -47,29 +41,21 @@ CONFIG_LPC17_CODEREDW=n
 CONFIG_LPC17_CODEREDL=n
 }}}
  # Save the file and close it.
- # Open "c:\nxp\nuttx\setenv.sh" using textpad,or some other program that can open/save files in Unix format.  Now we also change the toolchain section here:
+ # Open "/nxp/nuttx/setenv.sh" using nano or other text editor.  Now we also change the toolchain section here:
 {{{
 # This is where the buildroot might reside on a Linux or Cygwin system
 export TOOLCHAIN_BIN="${WD}/../buildroot/build_arm_nofpu/staging_dir/bin"
 
 # This is the default install location for Code Red on Linux
-# export TOOLCHAIN_BIN="/usr/local/LPCXpresso/tools/bin"
+#export TOOLCHAIN_BIN="/usr/local/LPCXpresso/tools/bin"
 
 # This the Cygwin path to the LPCXpresso 3.6 install location under Windows
 #export TOOLCHAIN_BIN="/cygdrive/c/nxp/lpcxpresso_3.6/Tools/bin"
 }}}
  # Save the file and close it.
- # Go back to rxvt.
- # `cd /cygdrive/c/nxp/buildroot`
- # `cp configs/cortexm3-defconfig-4.3.3 .config`    
-  * Remark there's a space between the "4.3.3" and the ".config"
- # `make oldconfig`
-  * Don't change any option unless you know what you're doing.
- # `make`
-  * When you've done everything right, then this command will start building your ARM-toolchain.  This will take a while...and a while... 1h 45mins on a 2GHz, 2GB RAM laptop.
 
 =Building your application=
- # `cd /cygdrive/c/nxp/nuttx`
+ # `cd /nxp/nuttx`
  # `. ./setenv.sh`
  # `make`
 
