@@ -26,5 +26,6 @@
  * Ethernut
  * [http://nuttx.sourceforge.net/ NuttX]
   * On Windows, Cygwin packages need to be installed -> time consuming.
-  * [HowtoNuttxWindowsBuildroot How to build NuttX using Windows]
+  * [HowtoNuttxWindowsBuildroot How to build NuttX using Linux and Buildroot]
   * [BuildNuttxLinux How to build NuttX using Linux and Code Red]
+  * [HowtoNuttxWindowsBuildroot How to build NuttX using Windows]
