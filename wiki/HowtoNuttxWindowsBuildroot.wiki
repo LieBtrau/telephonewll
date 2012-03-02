@@ -5,7 +5,7 @@ Make it easy for yourself.  Install Linux (you'll be amazed how easy that is) an
   # libgmp-dev
   # libmpfr-dev
   # zlib1g-dev
- # Download buildroot from the nuttx website, nuttx and the applications of nuttx
+ # Download buildroot from the NuttX website, NuttX itself and the applications of NuttX. [http://sourceforge.net/projects/nuttx/files/ Download]
  # Unpack the three tar-files to a directory without spaces, like /home/nxp
  # Remove the version names from the apps, buildroot and nuttx directories.
  # Now you will have a directory view like:
@@ -55,9 +55,10 @@ export TOOLCHAIN_BIN="${WD}/../buildroot/build_arm_nofpu/staging_dir/bin"
  # Save the file and close it.
 
 =Building your application=
+ # If you tried Code Red for Linux earlier on, you'll first have to delete the `make.dep` files.
+
  # `cd /nxp/nuttx`
  # `. ./setenv.sh`
  # `make`
 
 =Debugging your application=
-[http://knowledgebase.nxp.com/showthread.php?t=2361&langid=2]
