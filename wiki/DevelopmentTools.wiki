@@ -1,4 +1,6 @@
 # What development tool to use?
+ * [http://robovero.org/index.php/tutorials/toolchain Crosstool-NG]
+ * [http://fun-tech.se/stm32/gcc/index.php Fun-tech toolchain]
  * [http://www.code-red-tech.com/lpcxpresso.php Code Red]
   * Even the "getting started" didn't work without problems
    * Can't find project in zip-files
