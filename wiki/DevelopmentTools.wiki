@@ -28,6 +28,7 @@
  * Micriµm µC
  * Ethernut
  * [http://nuttx.sourceforge.net/ NuttX (OABI toolchain)]
+  * GDB version delivered with NuttX is outdated.
   * On Windows, Cygwin packages need to be installed -> time consuming.
   * [HowtoNuttxWindowsBuildroot How to build NuttX using Linux and Buildroot]
   * [BuildNuttxLinux How to build NuttX using Linux and Code Red]
