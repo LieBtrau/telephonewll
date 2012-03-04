@@ -33,6 +33,6 @@ It could also be used for Arduino users (if they want to create software drivers
 =Baseboard=
 Several options possible:
  * [http://www.arduino.cc/ Arduino]
- * [chipkitinstallation chipKIT]
+ * [chipkitInstallation chipKIT]
  * [http://netduino.com/netduino/ Netduino]
  * Creating a baseboard with [HardwareDevelopment LPCXpresso]
