@@ -1,7 +1,4 @@
-#summary One-sentence summary of this page.
-
-= Phase 2: Developing baseboard =
-The POTSduino has been designed as an Arduino-shield.  In this project however, the Arduino will not be used.  Instead of that an LPCduino has been developed.  This LPCduino is actually a baseboard for an LPCXpresso-board, so that LPCXpresso boards can be connected to Arduino shields.
+The LPCduino is actually a baseboard for an LPCXpresso-board, so that LPCXpresso boards can be connected to Arduino shields.
 
 The Arduino has limited computational resources.  This could become a problem in this project, especially if some real-time speech compression needs to be done on board.
 So some kind of "speed upgrade" of the Arduino was needed.  At the time of writing, boards like the [http://www.digilentinc.com/Products/Catalog.cfm?NavPath=2,892&Cat=18 chipKIT Uno32 and the chipKIT Max32] didn't exist yet.  Developing a pin-compatible LPCduino came as a logical next step.
