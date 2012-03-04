@@ -1,0 +1,21 @@
+==Phone part==
+
+===Shield===
+Search on the internet for: [http://lmgtfy.com/?q=SLIC+interface SLIC-interface]
+ * STLC3080: not chosen, can't create ringing signal automatically
+ * STLC3075: 
+  * created especially for wireless local loops
+  * it's hard to get (not available at RS, Farnell, Mouser, Digikey)
+  * ST states it as an obsolete component
+ * [http://www.silabs.com/Marcom%20Documents/Resources/Si3210ProductBrief.pdf Si3210M-FT]
+  * active high for enabling DC for ringer
+  * € 7,84 at Mouser
+  * Extra Si3201-GS (€1.83) needed, or using lots of discrete components
+ * *[http://www.silabs.com/Marcom%20Documents/Resources/Si3210ProductBrief.pdf SI3210-GT]* 
+  * active low for enabling DC for ringer
+  * € 7,03 at Mouser
+  * Extra Si3201-GS (€1.83) needed, or using lots of discrete components
+  * When ringer is needed, this circuit can not work on 3.3V (datasheet table 21)
+ * Si3215 & Si3216 are harder to get (non-stock at Mouser)
+
+==Baseboard==
