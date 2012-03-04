@@ -8,6 +8,7 @@
    * Can't find project in zip-files
    * Examples don't debug (header files not found)
   * Not open source
+  * Code limit on debugger, can't debug NuttX/nsh application.
  * [http://www.yagarto.de/ YAGARTO]
   * Doesn't contain IDE, but Eclipse is proposed.
   * The "Howto" actually works!
