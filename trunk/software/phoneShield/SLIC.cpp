@@ -15,9 +15,17 @@ boolean writeVerifyIndirectReg(INDIRECT_REGISTERS yAddress, word wValue);
 
 const byte VBATL=40;
 
+boolean setupVoiceChannel(){
+  if(!writeVerifySPI(PCM_TX_STARTL,0x02))return false;      //delay TXD by two PCLKs
+}
+
 boolean enableDiallingTone(){
   writeSPI(LINE_FEED_CTRL,2);
   if(!writeVerifySPI(PCM_MODE_SEL,0x28))return false;
+  if(!writeVerifyIndirectReg(OSC1,30959))return false;      //OSC1=425Hz (Belgacom spec)
+  if(!writeVerifyIndirectReg(OSC1X,171))return false;       //171 = 1243 * amplitude[V] (for 425Hz) = 1243 * 0.138 [= -15dBm on 600ohm)
+  if(!writeVerifyIndirectReg(OSC1Y,0))return false;
+  writeSPI(OSC1CTRL,0x06);                                  //Assign dial tone to RX path (will be audible on phone)
 }
 
 boolean offHook(){
@@ -71,7 +79,7 @@ boolean slicInit(unsigned long timeout_s){
   if(!writeVerifyIndirectReg(DTMF_COL_2ND_ARM,0x0202))return false;
   if(!writeVerifyIndirectReg(DTMF_PWR_MIN_TRES,0x00E5))return false;
   if(!writeVerifyIndirectReg(DTMF_OT_LIM_TRES,0x0A1C))return false;
-  if(!writeVerifyIndirectReg(OSC1_COEF,0x7B30))return false;
+  if(!writeVerifyIndirectReg(OSC1,0x7B30))return false;
   if(!writeVerifyIndirectReg(OSC1X,0x0063))return false;
   if(!writeVerifyIndirectReg(OSC1Y,0x0000))return false;
   if(!writeVerifyIndirectReg(OSC2_COEF,0x7870))return false;
@@ -79,7 +87,7 @@ boolean slicInit(unsigned long timeout_s){
   if(!writeVerifyIndirectReg(OSC2Y,0x0000))return false;
   if(!writeVerifyIndirectReg(RING_V_OFF,0x0000))return false;
   if(!writeVerifyIndirectReg(RING_OSC,0x7E6C))return false;                //25Hz ringing frequency (Belgacom spec.)
-  if(!writeVerifyIndirectReg(RING_X,0x0160))return false;                  //RNGX = 645 * Vpk / 96 -> Vpk= 52Vp=37Vrms (Belgacom spec. 38Vrms to 90Vrms)
+  if(!writeVerifyIndirectReg(RNGX,0x160))return false;                     //RNGX = 645 * Vpk / 96 -> Vpk= 52Vp=37Vrms (Belgacom spec. 38Vrms to 90Vrms)
   if(!writeVerifyIndirectReg(RING_Y,0x0000))return false;
   if(!writeVerifyIndirectReg(PULSE_ENVEL,0x2000))return false;
   if(!writeVerifyIndirectReg(PULSE_X,0x2000))return false;
@@ -193,7 +201,7 @@ boolean slicInit(unsigned long timeout_s){
   Serial.println("Miscellaneous initialisations");
   //Flush energy accumulators (undocumented registers)
   for(byte i=88;i<=95;i++){
-    if(!writeVerifyIndirectReg((INDIRECT_REGISTERS)i,0))return false;
+    if(!writeIndirectReg((INDIRECT_REGISTERS)i,0))return false;
   }
   if(!writeIndirectReg((INDIRECT_REGISTERS)97,0))return false;
   for(byte i=193;i<=211;i++){
@@ -244,22 +252,18 @@ boolean slicInit(unsigned long timeout_s){
 
 byte readSPI(DIRECT_REGISTERS yAddress){
   byte yVal=0;
-  noInterrupts();
   digitalWrite(PIN_nCS,LOW);
   SPI.transfer(0X80 | yAddress);
   yVal=SPI.transfer(0);
   digitalWrite(PIN_nCS,HIGH);
-  interrupts();
   return yVal;
 }
 
 void writeSPI(DIRECT_REGISTERS yAddress, byte yData){
-  noInterrupts();
   digitalWrite(PIN_nCS,LOW);
   SPI.transfer(0X7F & yAddress);
   SPI.transfer(yData);
   digitalWrite(PIN_nCS,HIGH);
-  interrupts();
 }
 
 boolean writeVerifySPI(DIRECT_REGISTERS yAddress, byte yData){
@@ -303,9 +307,9 @@ boolean writeVerifyIndirectReg(INDIRECT_REGISTERS yAddress, word wValue){
   if(wCheck!=wValue){
     Serial.print("Write indirect register failed: address: ");
     Serial.print(yAddress, DEC);
-    Serial.print("Expected value: 0x");
+    Serial.print("\tExpected value: 0x");
     Serial.print(wValue, HEX);
-    Serial.print(" Read value: 0x");
+    Serial.print("\tRead value: 0x");
     Serial.println(wCheck, HEX);
     return false;
   }
