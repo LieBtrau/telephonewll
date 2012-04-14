@@ -1,9 +1,5 @@
-/*Timer2 generates PCLK at 256kHz.  That's the lowest permissible rate.
- *The original idea was to generate the FSYNC signal in the ISR of timer2 compare, but
- *There are only 64 cycles available as the ISR runs at 256kHz.  Besides, there would be 
- *hardly time left to do other useful work.
- *So the alternative is to generate the 7.8kHz FSYNC with timer1.
- */
+//For debugging purposes:
+//  Linux stores the build output in /tmp/buildxxxxxxxx.tmp and deletes it after closing Arduino
 
 #include <SPI.h>
 #include "slic.h"
@@ -19,6 +15,7 @@ void setup() {
   pinMode(PIN_nCS,OUTPUT);
   pinMode(PIN_MOSI, OUTPUT);
   pinMode(PIN_DRX, OUTPUT);
+  pinMode(6,OUTPUT);//debugging
   digitalWrite(PIN_DRX, LOW);
   
   digitalWrite(PIN_RESET, LOW);              //Put board into reset
@@ -41,8 +38,21 @@ void setup() {
 }//setup
 
 void loop() {
-  if(offHook()){
-    enableDiallingTone();
+  static byte state=0;
+  switch(state){
+    case 0:
+      if(offHook()){
+        enableDiallingTone();
+        state=1;
+      }
+      break;
+    case 1:
+      setupVoiceChannel();
+      enablePcmGateway();
+      state=2;
+      break;
+    case 2:
+      break;
   }
 }//loop
 

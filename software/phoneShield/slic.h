@@ -20,6 +20,7 @@ typedef enum{
   IND_DAT_ACC_H=29,
   IND_ADDR=30,
   IND_ADDR_STATUS=31,
+  OSC1CTRL=32,
   ROC=34,
   RATL=48,
   RATH=49,
@@ -65,7 +66,7 @@ typedef enum{
   DTMF_COL_2ND_ARM=10,//0x0202
   DTMF_PWR_MIN_TRES=11,//0x00E5
   DTMF_OT_LIM_TRES=12,//0x0A1C
-  OSC1_COEF=13,//0x7B30
+  OSC1=13,//0x7B30
   OSC1X=14,//0x0063
   OSC1Y=15,//0x0000
   OSC2_COEF=16,//0x7870
@@ -73,7 +74,7 @@ typedef enum{
   OSC2Y=18,//0x0000
   RING_V_OFF=19,//0x0000
   RING_OSC=20,//0x7EF0
-  RING_X=21,//0x0160
+  RNGX=21,//0x0160
   RING_Y=22,//0x0000
   PULSE_ENVEL=23,//0x2000
   PULSE_X=24,//0x2000
@@ -106,6 +107,7 @@ const byte PIN_FSYNC=9;
 const byte PIN_nCS=10;
 const byte PIN_MOSI=11;
 
+boolean setupVoiceChannel(void);
 boolean slicInit(unsigned long timeout_s);
 void ringing(boolean bOn);
 boolean offHook(void);
