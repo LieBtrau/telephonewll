@@ -69,7 +69,7 @@ RTP-protocol can carry G.711 data.  The RTP-protocol gives too much overhead to 
  * G.711 Appendix I defines a Packet Loss Concealment (PLC) algorithm to help hide transmission losses in a packetized network.
  * [http://tools.ietf.org/html/rfc5391 RFC5391 RTP Payload Format for G.711.1]
  * [http://www.itu.int/rec/T-REC-G.191/en ITU-T Rec.G.191]
-
+ * [http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&nodeId=2680&dDocName=en554168 Microchip Audio Libraries]
 ==Operating System==
  * TinyOS targets wireless sensor networks, such as IEEE802.15.4
 
