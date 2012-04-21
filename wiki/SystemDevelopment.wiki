@@ -118,3 +118,12 @@ RS: overview of Zigbee modules (sorting ascending on price):
  * Telegesis: stack included datarate: 20kbps.
  * Atmel: zigbit: only a radio: 2 protocol stacks available
  * XBee: protocol stack included. (cheapest bij Mouser)
+
+===Modules verification===
+What's the throughput of serial wireless modules?  A solution in C# has been developed to test this.  It consists of two projects, one for sending bytes and one for receiving bytes.
+The sending application opens the serial port with RTS/CTS flow control to prevent overflow of buffers in the transmitting module.  The application sends bytes as long as the transmitting module is requesting them by holding /CTS-low.
+
+The receiving module starts a timer, then receives all the bytes until the timer runs out, typically after ten seconds.  The number of bytes received is multiplied by eight to get the number of received bits and afterwards divided by the timer period to get the throughput baudrate.
+
+ * XBee Pro modules: 86kbps - 89kbps (<0.5m interdistance).
+ * Radiotronix modules: NT
