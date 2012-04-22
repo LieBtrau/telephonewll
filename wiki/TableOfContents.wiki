@@ -1,3 +1,4 @@
  * [PhonePart Phone Part]
   * [PhonePart#Shield Shield]
   * [PhonePart#Baseboard Baseboard]
+ * [AudioCodec]
