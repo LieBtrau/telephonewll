@@ -1,0 +1,2 @@
+==ADPCM==
+* [https://instruct1.cit.cornell.edu/courses/ee476/FinalProjects/s2006/wc227_rks33/wc227_rks33/index.htm Voice Compression using ADPCM algorithm]
