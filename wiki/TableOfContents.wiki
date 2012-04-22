@@ -2,4 +2,4 @@
   * [PhonePart#Shield Shield]
   * [PhonePart#Baseboard Baseboard]
  * [AudioCodec Codec]
- * [TransportProcotol Protocol]
+ * [TransportProtocol Protocol]
