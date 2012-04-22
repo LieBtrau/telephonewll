@@ -44,32 +44,6 @@ The components that have been investigated can be found below:
   * Available at Mouser Electronics
   * PCM-interface
 
-==CODEC==
-The voice information can be sent in an analog or a digital version to the communicating devices.  The choice is made to use digital transmission, because it's then easier to implement control codes in the data.  Embedding control codes in analog signals can be quite complicated (e.g. the analog television signal).
-This decision has the drawback that an audio CODEC is needed to convert the analog audio signal to its digital version and vice versa.
-
-There is also need of a compression algorithm.  If voice is digitized at 8kHz (8bit), this will give an audio stream of 64kpbs, which is simply too much to send over a wireless channel.
- * Jennic has its JN5319 that transfers speech over an IEEE802.15.4.  The sampling frequency and resolution are selectable.  A sampling rate of 8kHz at a 16bit resolution lead to a raw bit rate of 128kbps.  By use of ADPCM this is reduced by a factor four to 32kbps.  A WM8510 audio codec is used for that job.
- * [http://en.wikipedia.org/wiki/G.729 ITU-T G.729a(8kbps)] which is used most in VoIP.
-
-Possible ICs:
-
- * No IC: the Si3050 already includes a [http://en.wikipedia.org/wiki/G.711 ITU-T G.711] codec.
- * AD73311: not chosen.  It delivers 16-bit data.  There is not enough bandwidth to send 16bit data over the wireless channel at the desired sampling rate.
- * TP3054/TP3057: These devices use logarithmic PCM.  
-  * They compand an internal 13or 14-bit signal to an 8-bit signal on the digital port.  
-  * The companding algorithm works using µ-law for the TP3054 and A-law for the TP3057.   
-  * More information to be found on [http://en.wikipedia.org/wiki/G.711 ITU-T G.711].  
-  * This functionality is already included in Si3050+Si3019.
- * [http://www.wolfsonmicro.com/products/codecs/WM8510/ WM8510]
- * [http://en.wikipedia.org/wiki/Comparison_of_audio_codecs Several audio codecs on Wikipedia]
-
-==Software==
-RTP-protocol can carry G.711 data.  The RTP-protocol gives too much overhead to implement in a simple microcontroller.  A complete IP-stack should be prevented.
- * G.711 Appendix I defines a Packet Loss Concealment (PLC) algorithm to help hide transmission losses in a packetized network.
- * [http://tools.ietf.org/html/rfc5391 RFC5391 RTP Payload Format for G.711.1]
- * [http://www.itu.int/rec/T-REC-G.191/en ITU-T Rec.G.191]
- * [http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&nodeId=2680&dDocName=en554168 Microchip Audio Libraries]
 ==Operating System==
  * TinyOS targets wireless sensor networks, such as IEEE802.15.4
 
