@@ -25,6 +25,7 @@ There is also need of a compression algorithm.  If voice is digitized at 8kHz (8
  * ADPCM speech codec
  * G.727 is a specialized version of the ITU-T G.726 protocol that is intended for packet-based systems using the Packetized Voice Protocol (PVP)
  * Implementations:
+  * [http://www.atmel.com/Images/doc2572.pdf Atmel AVR336: ADPCM decoder]
   * [https://instruct1.cit.cornell.edu/courses/ee476/FinalProjects/s2006/wc227_rks33/wc227_rks33/index.htm Voice Compression using ADPCM algorithm]
   * [http://ethesis.nitrkl.ac.in/2057/1/Thesis_final.pdf Automatic phone answering machine]
   * [http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&nodeId=2680&dDocName=en554168 Microchip Audio Libraries]
