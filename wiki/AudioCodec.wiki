@@ -20,10 +20,14 @@ There is also need of a compression algorithm.  If voice is digitized at 8kHz (8
 
 ===ITU-T G.711===
  * PCM encoding of 8KHz signals with µ-Law or A-Law results in 64kbps stream.
+ * Compressing 12-bits data to 8-bit.
+ * In telephony, this standard is used together with ITU-T G.726.
 ===ITU-T G.726===
  * [http://en.wikipedia.org/wiki/G.726 ITU-T G.726 on Wikipedia]
  * ADPCM speech codec
  * G.727 is a specialized version of the ITU-T G.726 protocol that is intended for packet-based systems using the Packetized Voice Protocol (PVP)
+ * This codec can only work with plain PCM-samples, so ITU-T G.711 compressed samples will have to be decompressed first.
+
 ===IMA ADPCM===
  * Fixed point calculation instead of floating points in ITU-T G.726
  * [http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/APPLICATION_NOTE/CD00275263.pdf ST-implementation]
@@ -37,8 +41,9 @@ There is also need of a compression algorithm.  If voice is digitized at 8kHz (8
  * Industry standard in CTI industry
  * .VOX is standard extension for files on PC.
  * Supported by SoX
- * [http://www.hackchina.com/en/r/10118/vox-_-vox.c__html Source code]
- * [http://www.sal.ksu.edu/faculty/tim/vox/ Source code]
+ * [http://www.hackchina.com/en/r/10118/vox-_-vox.c__html Source code from HackChina]
+ * [http://www.sal.ksu.edu/faculty/tim/vox/ Source code (not fully according to spec)]
+ * [https://github.com/jart/freeswitch/blob/master/libs/spandsp/src/oki_adpcm.c Source Code from SpanDSP]
 ===ITU-T G.729a===
  * [http://en.wikipedia.org/wiki/G.729 ITU-T G.729a(8kbps)] which is used most in VoIP.
  * Based on ACELP, very complex codec
