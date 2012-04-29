@@ -14,3 +14,9 @@
  * Both the phone part and the phone socket part should have an indication that the system is still operational.
  * Wireless interface must permit usage of multiple telephones with one base station.
  * Speech quality should be the same as normal wired phone lines.
+
+==Existing (closed source implementation)==
+Search [http://www.google.com/search?q=wireless+phone+jack+extender Google]
+ * [http://www.hip-ip.com/product/accessories/wireless-phone-jacks/wireless-phone-jack HiP-IP Wireless Phone Jack]
+ * [http://www.amazon.com/RCA-RC920-Wireless-Phone-Extension/dp/B00000J0AR RC920]
+ * ...
