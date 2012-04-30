@@ -20,8 +20,11 @@ There is also need of a compression algorithm.  If voice is digitized at 8kHz (8
 
 ===ITU-T G.711===
  * PCM encoding of 8KHz signals with µ-Law or A-Law results in 64kbps stream.
- * Compressing 12-bits data to 8-bit.
+ * Compressing 13-bits or 14-bits data to 8-bit, depending on whether µ-Law or A-Law is used.
  * In telephony, this standard is used together with ITU-T G.726.
+ * Source:
+  * [https://github.com/jart/freeswitch/blob/master/libs/spandsp/src/spandsp/g711.h SpanDSP]
+  * [http://www.codeproject.com/Articles/14237/Using-the-G711-standard CodeProject]
 ===ITU-T G.726===
  * [http://en.wikipedia.org/wiki/G.726 ITU-T G.726 on Wikipedia]
  * ADPCM speech codec
