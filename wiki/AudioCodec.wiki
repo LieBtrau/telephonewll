@@ -24,7 +24,7 @@ There is also need of a compression algorithm.  If voice is digitized at 8kHz (8
  * In telephony, this standard is used together with ITU-T G.726.
  * Source:
   * [https://github.com/jart/freeswitch/blob/master/libs/spandsp/src/spandsp/g711.h SpanDSP]
-  * [http://www.codeproject.com/Articles/14237/Using-the-G711-standard CodeProject]
+  * [http://www.codeproject.com/Articles/14237/Using-the-G711-standard CodeProject]: This decoder stores the decoded bits on bits 15-3 of a 16-bit word.  So bits 2-0 will always be 0.
 ===ITU-T G.726===
  * [http://en.wikipedia.org/wiki/G.726 ITU-T G.726 on Wikipedia]
  * ADPCM speech codec
