@@ -44,6 +44,7 @@ There is also need of a compression algorithm.  If voice is digitized at 8kHz (8
  * Industry standard in CTI industry
  * .VOX is standard extension for files on PC.
  * Supported by SoX
+ * [http://www.sal.ksu.edu/faculty/tim/vox/dialogic_adpcm.pdf Standard document]
  * [http://www.hackchina.com/en/r/10118/vox-_-vox.c__html Source code from HackChina]
  * [http://www.sal.ksu.edu/faculty/tim/vox/ Source code (not fully according to spec)]
  * [https://github.com/jart/freeswitch/blob/master/libs/spandsp/src/oki_adpcm.c Source Code from SpanDSP]
