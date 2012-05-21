@@ -36,6 +36,8 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="ReadData.cs" />
+    <Compile Include="NeoRs232.cs" />
+    <Compile Include="Crc16.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
