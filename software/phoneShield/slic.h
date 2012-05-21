@@ -8,6 +8,7 @@ typedef enum{
   PCM_RX_STARTL=4,
   PCM_RX_STARTH=5,
   AUDIO_LOOPBACK=8,
+  AUDIO_GAIN=9,
   TRANSHYBRID_BALANCE=11,
   PWR_DWN_CRTL1=14,
   INT_STAT_1=18,
@@ -88,7 +89,8 @@ typedef enum{
   PWR_ALARM_Q1Q2=32,//0x07C0  -> as per AN47, p.4: 0x0FF0
   PWR_ALARM_Q3Q4=33,//0x2600  -> as per AN47, p.4: 0x7F80
   PWR_ALARM_Q5Q6=34,//0x1B80  -> as per AN47, p.4: 0x0FF0
-  LOOP_CLOSURE_FILTER=35,//0x8000    // AN35 advises to set IRs 35--39 to 0x8000 now and then set them to their desired values much later
+  LOOP_CLOSURE_FILTER=35,//0x8000    // AN35 advises to set IRs 35--39 to 0x8000 now and then set them to their desired 
+    //values much later
   NRTP=36,//0x0320
   TERM_LP_POLE_Q1Q2=37,//0x008C -> as per AN47, p.4: 0x0010
   TERM_LP_POLE_Q3Q4=38,//0x0100 -> as per AN47, p.4: 0x0010
@@ -103,6 +105,7 @@ INDIRECT_REGISTERS;
 const byte PIN_PCLK=3;
 const byte PIN_RESET=5;
 const byte PIN_DRX=7;
+const byte PIN_DTX=8;
 const byte PIN_FSYNC=9;
 const byte PIN_nCS=10;
 const byte PIN_MOSI=11;
@@ -113,3 +116,4 @@ void ringing(boolean bOn);
 boolean offHook(void);
 boolean enableDiallingTone(void);
 #endif
+
