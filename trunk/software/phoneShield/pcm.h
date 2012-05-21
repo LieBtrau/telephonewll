@@ -2,5 +2,6 @@
 #define PCM_H
 
 void setupPcmGateway();
-void enablePcmGateway();
+void controlPcmGateway(boolean bOn);
+byte PCMcomm(byte data);
 #endif
