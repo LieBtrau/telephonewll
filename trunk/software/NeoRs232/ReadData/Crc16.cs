@@ -17,6 +17,10 @@ namespace phonePC
 			UInt16 crcRxed=0, crcCalculated;
 			aMsg=null;
 			
+			if(length<2){
+				return false;
+			}
+			
 			crcCalculated=get_crc(dataPacket,length-2);
 			
 			//read CRC from received data (little endian volgorde)
