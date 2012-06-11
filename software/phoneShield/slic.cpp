@@ -15,16 +15,24 @@ boolean writeVerifyIndirectReg(INDIRECT_REGISTERS yAddress, word wValue);
 
 const byte VBATL=40;
 
+boolean setupVoiceChannel(){
+  if(!writeVerifySPI(PCM_TX_STARTL,0x02))return false;      //delay TXD by two PCLKs
+}
+
 boolean enableDiallingTone(){
   writeSPI(LINE_FEED_CTRL,2);
+  if(!writeVerifySPI(PCM_MODE_SEL,0x28))return false;
   if(!writeVerifyIndirectReg(OSC1,30959))return false;      //OSC1=425Hz (Belgacom spec)
   if(!writeVerifyIndirectReg(OSC1X,171))return false;       //171 = 1243 * amplitude[V] (for 425Hz) = 1243 * 0.138 [= -15dBm on 600ohm)
   if(!writeVerifyIndirectReg(OSC1Y,0))return false;
-  writeSPI(OSC1CTRL,0x07);//debug, should be 6              //Assign dial tone to RX path (will be audible on phone)
+  writeSPI(OSC1CTRL,0x06);                                  //Assign dial tone to RX path (will be audible on phone)
 }
 
 boolean offHook(){
   byte yVal=readSPI(LOOP_COND_IND);
+  if(yVal!=4){
+    Serial.println(yVal,HEX);
+  }
   if(yVal & 0x01){
     return true;
   }else{
@@ -118,35 +126,23 @@ boolean slicInit(unsigned long timeout_s){
   if(!writeVerifySPI(LOOP_CURR_LIM,0))return false;                    //max allowed loop current = 20mA [default value]
 
   //power up DCDC-converter
-  Serial.print("Powering up DC/DC-converter...");
+  Serial.println("Powering up DC/DC-converter");
   startTime=millis();
   if(!writeVerifySPI(PWR_DWN_CRTL1,0x00))return false;                 //this should bring the DC-DC converter up
   do{
     val=readSPI(VBAT_SNS_1);                                           //Poll the battery voltage and wait until it reaches the desired value
     delay(10);
-    if(millis()-startTime>1000)
-    {
-      Serial.println("FAILED");
-      return false;
-    }
+    if(millis()-startTime>1000)return false;
   }while((val>>2)<VBATL);                                              //battery voltage is sensed in 0.376V steps, while VBATL is set in 1.5V steps (= about 4*0.376)
-  Serial.println("OK");
-  
-  //Calibrating DCDC-converter
-  Serial.print("Calibrating DC/DC-converter...");
+
   val=readSPI(DCDC_SW_DELAY);
   writeSPI(DCDC_SW_DELAY,val | 0X80);                                  //Perform DCDC-calibration
   startTime=millis();
   do{
     val=readSPI(DCDC_SW_DELAY);                                        
     delay(10);
-    if(millis()-startTime>1000)
-    {
-      Serial.println("FAILED");
-      return false;
-    }    
+    if(millis()-startTime>1000)return false;
   }while(val & 0x80);                                                  //Poll the DCCAL-bit
-  Serial.println("OK");
 
   //Calibrate SLIC
   Serial.println("Calibrating Slic");
@@ -221,9 +217,9 @@ boolean slicInit(unsigned long timeout_s){
   if(!writeVerifySPI(INT_EN_2,0xFF))return false; 
   if(!writeVerifySPI(INT_EN_3,1))return false;                                         //enable DTMF-interrupts
   //set up PCM clock slot assignment
-  if(!writeVerifySPI(PCM_TX_STARTL,11))return false;                                   //delay SLIC send data by 11 clock cycles
+  if(!writeVerifySPI(PCM_TX_STARTL,0))return false; 
   if(!writeVerifySPI(PCM_TX_STARTH,0))return false; 
-  if(!writeVerifySPI(PCM_RX_STARTL,2))return false;                                    //delay SLIC receiving data by 2 clock cycles
+  if(!writeVerifySPI(PCM_RX_STARTL,0))return false; 
   if(!writeVerifySPI(PCM_RX_STARTH,0))return false;
   //Initialise voice path
   //Nothing to do?
@@ -250,7 +246,7 @@ boolean slicInit(unsigned long timeout_s){
   if(!writeVerifyIndirectReg(TERM_LP_POLE_Q1Q2,0x0010))return false;        //0x008C -> as per AN47 (Si3201 chip -> use SOT89 settings), p.4: 0x0010
   if(!writeVerifyIndirectReg(TERM_LP_POLE_Q3Q4,0x0010))return false;        //0x0100 -> as per AN47 (Si3201 chip -> use SOT89 settings), p.4: 0x0010
   if(!writeVerifyIndirectReg(TERM_LP_POLE_Q5Q6,0x0010))return false;        //0x0010 -> as per AN47 (Si3201 chip -> use SOT89 settings), p.4: 0x0010
-  if(!writeVerifySPI(PCM_MODE_SEL,0x20))return false;                       //Enable PCM in A-law mode
+  if(!writeVerifySPI(PCM_MODE_SEL,0x28))return false;                       //Enable PCM in µ-law mode
   return true;
 }
 

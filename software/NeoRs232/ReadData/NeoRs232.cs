@@ -58,6 +58,14 @@ namespace phonePC
 				return _frType;
 			}
 		}
+		
+		public byte[] Data
+		{
+			get
+			{
+				return _data;
+			}
+		}
 	}
 
 	public class NeoRs232
@@ -71,6 +79,7 @@ namespace phonePC
 		private STATE _state;
 		private Thread _oReceiveThread;
 		private ArrayList _aReceivedData;
+		private bool _bAckReceived;
 		
 		public NeoRs232 (SerialPortTest mySerial)
 		{
@@ -83,9 +92,25 @@ namespace phonePC
 			_oReceiveThread = new Thread(new ThreadStart(receiveRun));
 			_oReceiveThread.Start();
 			while(!_oReceiveThread.IsAlive);
-		}    
+		}
 		
-		void receiveRun()
+		public bool frameAvailable()
+		{
+			return _aReceivedData.Count>0;
+		}
+		
+		public Frame getFrame()
+		{
+			Frame ret=null;
+			if(_aReceivedData.Count>0)
+			{
+				ret=(Frame)_aReceivedData[0];
+				_aReceivedData.RemoveAt(0);
+			}
+			return ret;
+		}
+		
+		private void receiveRun()
 		{
 			byte[] aMsg;
 			while(true)
@@ -102,9 +127,12 @@ namespace phonePC
 							//      writeFrame(
 							//      pFramer->pBegin,pFramer->pData-pFramer->pBegin);
 	    				}
+					else{
+						Console.WriteLine("wrong frame received.");
+					}
 	    				break;
 					case MSG_T.MSG_ACK_RECEIVED:
-						_aReceivedData.Add(new Frame(FRAME_TYPE.ACK_FRAME));
+						_bAckReceived=true;
 						break;
 					case MSG_T.MSG_DECODING:
 						//I'm still busy
@@ -129,19 +157,13 @@ namespace phonePC
 		*/
 		public bool txFrameWithAck(byte[] buffer){
 			_crc.appendCRC(ref buffer, buffer.Length);
+			_bAckReceived=false;
 			writeString(buffer, FRAME_TYPE.INFO_FRAME);
             DateTime startTime = DateTime.Now;
             TimeSpan duration;
 			do
 			{
-				for(int i=0;i<_aReceivedData.Count;i++)
-				{
-					if(((Frame)_aReceivedData[i]).Type==FRAME_TYPE.ACK_FRAME)
-					{
-						_aReceivedData.RemoveAt(i);
-						return true;
-					}
-				}
+				if(_bAckReceived)return true;
 				duration = DateTime.Now - startTime;
 				Thread.Sleep(1);
 			}
@@ -149,6 +171,19 @@ namespace phonePC
 			return false;
 		}//txFrameWithAck
 		
+		/*! Function that sends a frame.  First a CRC16 is appended.  Then the
+		* frame is sent.  After that, a timeout timer is initialized.  The
+		* acknowledge must come in before the timeout expires.
+		*\param buffer Buffer containing the data to send.
+		*\param length Number of bytes that must be sent.
+		*\param pFr    Pointer to framer, to check for incoming ack.
+		*\return       true when ACK received, else false.
+		*/
+		public void txFrameWithoutAck(byte[] buffer){
+			_crc.appendCRC(ref buffer, buffer.Length);
+			writeString(buffer, FRAME_TYPE.INFO_FRAME);
+		}//txFrameWithAck
+
 		/*! Function that reads a received character from the Stream using a state machine.
 		 *  The databytes are read from the circular buffer, a check if performed 
 		 *  if it is a flagbyte.  If it is, then the correct action is undertaken.
@@ -186,8 +221,10 @@ namespace phonePC
 					break;
 				case (byte)FLAGS.TRAILING_FLAG:
 					_state=STATE.WAITING;
+					Console.WriteLine("read data: frame received");
 					return MSG_T.MSG_RX_COMPLETE;
 				case (byte)FLAGS.ACK0_FLAG:
+					Console.WriteLine("read data: ack received");
 					return MSG_T.MSG_ACK_RECEIVED;
 				case (byte)FLAGS.DLE_FLAG:
 					if(_state==STATE.DECODING)
@@ -221,6 +258,7 @@ namespace phonePC
 		*\param typeFrame Type of frame (info frame or acknowledge frame)
 		*/
 		void writeString(byte[] buffer, FRAME_TYPE typeFrame){
+			Console.WriteLine(Environment.NewLine+"write data:" + typeFrame.ToString());
 			switch(typeFrame)
 			{
 				case FRAME_TYPE.INFO_FRAME:

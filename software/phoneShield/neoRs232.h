@@ -30,6 +30,7 @@ const byte FRAMESIZE=80;
 void receiveInit(FRAMER* pFr, byte* frameData);
 void receiveRun(FRAMER* pFramer);
 boolean txFrameWithAck(byte* buffer, byte length, FRAMER* pFr);
+void txFrameWithoutAck(byte* buffer, byte length, FRAMER* pFr);
 
 
 #endif

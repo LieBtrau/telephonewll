@@ -38,6 +38,8 @@ STATE;
 boolean flagCharacterInData(byte c);
 void writeString(byte* buffer, byte length, FRAME_TYPE typeFrame);
 MSG_T FramerReceive(FRAMER* pFr);
+extern void processFrame(byte* buf, byte length);
+
 
 /*! Initialize the frame so that it is ready to receive data
  *\param pFr Pointer to the frame that will be initialized.
@@ -59,9 +61,7 @@ void receiveRun(FRAMER* pFramer){
     {
       //Frame received correctly
       writeString(0,0,ACK_FRAME);
-//      //Do something with pFramer
-//      writeFrame(
-//      pFramer->pBegin,pFramer->pData-pFramer->pBegin);
+      processFrame(pFramer->pBegin,pFramer->pData-pFramer->pBegin);
     }
     break;
   case MSG_DECODING:
@@ -75,6 +75,12 @@ void receiveRun(FRAMER* pFramer){
     break;
   }
 }//receiveRun
+
+void txFrameWithoutAck(byte* buffer, byte length, FRAMER* pFr)
+{
+  appendCRC(buffer, length);
+  writeString(buffer, length+2, INFO_FRAME);
+}//txFrameWithoutAck
 
 
 /*! Function that sends a frame.  First a CRC16 is appended.  Then the
@@ -112,60 +118,60 @@ boolean txFrameWithAck(byte* buffer, byte length, FRAMER* pFr){
  */
 MSG_T FramerReceive(FRAMER* pFr){
   static boolean dle_received=false;
-  static STATE state;
+  static STATE state=WAITING;
   byte c=0;
+  MSG_T ret = MSG_NO_INPUT;
 
-  if(Serial.available()==0)
+  while(Serial.available()>0)
   {
-    return MSG_NO_INPUT;
-  }
-  c=Serial.read();
-
-  if(dle_received)
-  {
-    if(state==DECODING)
+    c=Serial.read();
+    ret=MSG_DECODING;
+    if(dle_received)
     {
-      *pFr->pData=c;
-      pFr->pData++;
+      if(state==DECODING)
+      {
+        *pFr->pData=c;
+        pFr->pData++;
+      }
       dle_received=false;
     }
-  }
-  else
-  {
-    switch(c)
+    else
     {
-    case LEADING_FLAG:
+      switch(c)
+      {
+      case LEADING_FLAG:
+        pFr->pData=pFr->pBegin;
+        state=DECODING;
+        break;
+      case TRAILING_FLAG:
+        state=WAITING;
+        return MSG_RX_COMPLETE;
+        break;
+      case ACK0_FLAG:
+        return MSG_ACK_RECEIVED;
+        break;
+      case DLE_FLAG:
+        if(state==DECODING)
+        {
+          dle_received=true;
+        }
+        break;
+      default:
+        if(state==DECODING)
+        {
+          *(pFr->pData)=c;
+          (pFr->pData)++;
+        }
+      }//switch
+    }
+    //RX-Buffer mustn't overflow
+    if(pFr->pData>=pFr->pEnd)
+    {
       pFr->pData=pFr->pBegin;
-      state=DECODING;
-      break;
-    case TRAILING_FLAG:
-      state=WAITING;
-      return MSG_RX_COMPLETE;
-      break;
-    case ACK0_FLAG:
-      return MSG_ACK_RECEIVED;
-      break;
-    case DLE_FLAG:
-      if(state==DECODING)
-      {
-        dle_received=true;
-      }
-      break;
-    default:
-      if(state==DECODING)
-      {
-        *(pFr->pData)=c;
-        (pFr->pData)++;
-      }
-    }//switch
+      return MSG_RX_OVERFLOW;
+    }
   }
-  //RX-Buffer mustn't overflow
-  if(pFr->pData>=pFr->pEnd)
-  {
-    pFr->pData=pFr->pBegin;
-    return MSG_RX_OVERFLOW;
-  }
-  return MSG_DECODING;
+  return ret;
 }//FramerReceive
 
 
@@ -211,6 +217,7 @@ void writeString(byte* buffer, byte length, FRAME_TYPE typeFrame){
 boolean flagCharacterInData(byte c){
   return (c==LEADING_FLAG||c==TRAILING_FLAG||c==DLE_FLAG||c==ACK0_FLAG ? true : false);
 }//flagCharacterInData
+
 
 
 
