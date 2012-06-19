@@ -7,7 +7,7 @@
 #include "g711.h"
 #include "oki_adpcm.h"
 #include "neoRs232.h"
-#include "ringBuffer.h"
+//#include "ringBuffer.h"
 
 typedef enum{
   REQ_OKI_DATA,
@@ -110,9 +110,9 @@ void processFrame(byte* buf, byte length){
 //      sendData[i++]=c;
 //    }
     for(int i=1;i<95;i++){
-      sendData[i]='a';
+      sendData[i]=i;
     }
-    txFrameWithAck(sendData, 10, &framer);
+    txFrameWithAck(sendData, 79, &framer);
     break;
   case RESP_OKI_DATA:
     //Peer sends us OKI data

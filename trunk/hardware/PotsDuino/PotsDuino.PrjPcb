@@ -128,20 +128,20 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 
 [Parameter1]
-Name=DrawnByX
-Value=CT
+Name=RevisionNr
+Value=1
 
 [Parameter2]
-Name=PCB_Nr
-Value=BRD111107/0
-
-[Parameter3]
 Name=ProjectName
 Value=POTSduino
 
+[Parameter3]
+Name=PCB_Nr
+Value=BRD111107/1
+
 [Parameter4]
-Name=RevisionNr
-Value=0
+Name=DrawnByX
+Value=CT
 
 [PCBConfiguration1]
 ReleaseItemId=
@@ -684,8 +684,13 @@ PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate
 OutputType1=ExportSTEP
 OutputName1=Export STEP
 OutputDocumentPath1=
-OutputVariantName1=
+OutputVariantName1=[No Variations]
 OutputDefault1=0
+OutputType2=AutoCAD dwg/dxf PCB
+OutputName2=AutoCAD dwg/dxf File PCB
+OutputDocumentPath2=
+OutputVariantName2=
+OutputDefault2=0
 
 [Modification Levels]
 Type1=1

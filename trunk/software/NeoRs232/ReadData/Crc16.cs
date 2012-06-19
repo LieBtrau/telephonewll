@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 
 namespace phonePC
 {
@@ -13,25 +14,25 @@ namespace phonePC
 		*\return TRUE when correct CRC, else return FALSE, when the CRC is correct,
 		*	then the CRC will be removed from the frame.
 		*/
-		public bool stripCRC(byte[] dataPacket, int length, out byte[] aMsg){
+		public bool stripCRC(byte[] dataPacket, out byte[] aMsg){
 			UInt16 crcRxed=0, crcCalculated;
 			aMsg=null;
 			
-			if(length<2){
+			if(dataPacket.Length<2){
 				return false;
 			}
 			
-			crcCalculated=get_crc(dataPacket,length-2);
+			crcCalculated=get_crc(dataPacket,dataPacket.Length-2);
 			
 			//read CRC from received data (little endian volgorde)
-			crcRxed=(UInt16) ((dataPacket[length-1]<<8) | dataPacket[length-2]);
-			
+			crcRxed=(UInt16) ((dataPacket[dataPacket.Length-1]<<8) | dataPacket[dataPacket.Length-2]);
+            Console.WriteLine(crcRxed);
 			if(crcRxed!=crcCalculated)
 			{
 				return false;
 			}
 			//Remove the CRC
-			aMsg=new byte[length-2];
+			aMsg=new byte[dataPacket.Length-2];
 			Array.Copy(dataPacket,aMsg,aMsg.Length);
 			return true;
 		}//stripCRC
@@ -72,7 +73,8 @@ namespace phonePC
     	{
         	data ^= (byte)(crc & 0xFF);
         	data ^= (byte)(data << 4);
-        	return (UInt16)(((((UInt16)data << 8) | ((crc>>8) & 0xFF)) ^ (byte)(data >> 4) ^ ((UInt16)data << 3)));
+            UInt16 data2 = (UInt16)(((UInt16)data << 8) | ((crc >> 8) & 0xFF));
+        	return (UInt16)(data2 ^ (byte)(data >> 4) ^ ((UInt16)data << 3));
     	}
 	}
 }
