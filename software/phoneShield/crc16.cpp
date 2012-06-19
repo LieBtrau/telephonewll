@@ -6,6 +6,7 @@
 #include <avr/crc16.h>
 
 word get_crc(byte* buf, byte length);
+word _crc_ccitt_update(word crc, byte data);
 
 /*!check and strip the CRC16 of the frame.
  *\param pFramer A frame containing the received data.
@@ -39,9 +40,9 @@ boolean stripCRC(FRAMER* pFramer){
  *\return the same buffer, with CRC-appended (little endian)
  */
 void appendCRC(byte* buffer, int length){
-  word crcValue=get_crc(buffer,length);
-  buffer[length]=(byte)(crcValue&0xFF);
-  buffer[length+1]=(byte)((crcValue>>8)&0xFF);
+  word crc=get_crc(buffer,length);
+  buffer[length]=crc & 0xFF;
+  buffer[length+1]=crc >> 8;
 }//appendCRC
 
 
@@ -58,5 +59,14 @@ word get_crc(byte* buf, byte length){
   }
   return crc;
 }//get_crc
+
+//http://www.nongnu.org/avr-libc/user-manual/group__util__crc.html
+//word _crc_ccitt_update(word crc, byte data)
+//{
+//  data ^= (byte)(crc & 0xFF);
+//  data ^= (byte)(data << 4);
+//  return (word)(((((word)data << 8) | ((crc>>8) & 0xFF)) ^ (byte)(data >> 4) ^ ((word)data << 3)));
+//}
+
 
 

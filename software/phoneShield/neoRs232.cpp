@@ -39,7 +39,7 @@ boolean flagCharacterInData(byte c);
 void writeString(byte* buffer, byte length, FRAME_TYPE typeFrame);
 MSG_T FramerReceive(FRAMER* pFr);
 extern void processFrame(byte* buf, byte length);
-
+static volatile boolean bAckReceived;
 
 /*! Initialize the frame so that it is ready to receive data
  *\param pFr Pointer to the frame that will be initialized.
@@ -64,6 +64,9 @@ void receiveRun(FRAMER* pFramer){
       processFrame(pFramer->pBegin,pFramer->pData-pFramer->pBegin);
     }
     break;
+  case MSG_ACK_RECEIVED:
+    bAckReceived=true;
+    break;
   case MSG_DECODING:
     //I'm still busy
     break;
@@ -78,6 +81,7 @@ void receiveRun(FRAMER* pFramer){
 
 void txFrameWithoutAck(byte* buffer, byte length, FRAMER* pFr)
 {
+  if(length+2>FRAMESIZE)return;//prevent buffer overflow
   appendCRC(buffer, length);
   writeString(buffer, length+2, INFO_FRAME);
 }//txFrameWithoutAck
@@ -92,12 +96,15 @@ void txFrameWithoutAck(byte* buffer, byte length, FRAMER* pFr)
  *\return       true when ACK received, else false.
  */
 boolean txFrameWithAck(byte* buffer, byte length, FRAMER* pFr){
+  if(length+2>FRAMESIZE)return false;//prevent buffer overflow
   appendCRC(buffer, length);
   writeString(buffer, length+2, INFO_FRAME);
+  bAckReceived=false;
   unsigned long lStartTime=millis();
   do
   {
-    if(FramerReceive(pFr)==MSG_ACK_RECEIVED)
+    receiveRun(pFr);
+    if(bAckReceived)
     {
       return true;
     }
@@ -199,6 +206,7 @@ void writeString(byte* buffer, byte length, FRAME_TYPE typeFrame){
         Serial.write(DLE_FLAG);
       }
       Serial.write(buffer[i]);
+      Serial.flush();
     }
     //Trailing flag
     Serial.write(TRAILING_FLAG);
@@ -206,7 +214,8 @@ void writeString(byte* buffer, byte length, FRAME_TYPE typeFrame){
   case ACK_FRAME:
     Serial.write(ACK0_FLAG);
     break;		        	
-  }    	
+  }
+
 }//writeString
 
 
@@ -217,6 +226,11 @@ void writeString(byte* buffer, byte length, FRAME_TYPE typeFrame){
 boolean flagCharacterInData(byte c){
   return (c==LEADING_FLAG||c==TRAILING_FLAG||c==DLE_FLAG||c==ACK0_FLAG ? true : false);
 }//flagCharacterInData
+
+
+
+
+
 
 
 

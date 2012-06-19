@@ -25,7 +25,7 @@ typedef struct{
 }
 FRAMER;
 
-const byte FRAMESIZE=80;
+const byte FRAMESIZE=81;
 
 void receiveInit(FRAMER* pFr, byte* frameData);
 void receiveRun(FRAMER* pFramer);
