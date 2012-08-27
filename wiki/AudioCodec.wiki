@@ -40,10 +40,13 @@ There is also need of a compression algorithm.  If voice is digitized at 8kHz (8
   * [https://instruct1.cit.cornell.edu/courses/ee476/FinalProjects/s2006/wc227_rks33/wc227_rks33/index.htm Voice Compression using ADPCM algorithm]
   * [http://ethesis.nitrkl.ac.in/2057/1/Thesis_final.pdf Automatic phone answering machine]
  * Supported by SoX
-===Dialogic ADPCM===
+===Dialogic/OKI ADPCM===
  * Industry standard in CTI industry
  * .VOX is standard extension for files on PC.
  * Supported by SoX
+ * For communication over wireless networks, 16kbps full duplex is the maximum.  I saw this on my own tests as well as on: [http://www.seas.upenn.edu/~rahulm/Research/Pubs/rtss06.pdf Voice Over Sensor Networks]
+  * Drop each second sample, use 4bit ADPCM
+  * Take all samples but use 2bit ADPCM (requires changing the codec)
  * [http://www.sal.ksu.edu/faculty/tim/vox/dialogic_adpcm.pdf Standard document]
  * [http://www.hackchina.com/en/r/10118/vox-_-vox.c__html Source code from HackChina]
  * [http://www.sal.ksu.edu/faculty/tim/vox/ Source code (not fully according to spec)]
