@@ -56,6 +56,9 @@ There is also need of a compression algorithm.  If voice is digitized at 8kHz (8
  * Based on ACELP, very complex codec
 ===Speex===
  * [http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&nodeId=2680&dDocName=en554168 Microchip Audio Libraries]
+ * For this application, Speex should be implemented with: sud-mode 4 and 11 kbps data rate to provide the best tradeoff between speech quality and computational complexity. 
+ * [http://onlinepresent.org/proceedings/vol7_2012/25.pdf Voice Transmission over Wireless Sensor Networks].
+
 ===CVSD===
  * Very simple algorithm, looks very attractive to implement
  * encodes each soundsample to 1 databit
