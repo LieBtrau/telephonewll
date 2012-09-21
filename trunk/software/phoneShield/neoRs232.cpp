@@ -60,7 +60,8 @@ void receiveRun(FRAMER* pFramer){
     if(stripCRC(pFramer))
     {
       //Frame received correctly
-      writeString(0,0,ACK_FRAME);
+      //todo
+      //writeString(0,0,ACK_FRAME);
       processFrame(pFramer->pBegin,pFramer->pData-pFramer->pBegin);
     }
     break;

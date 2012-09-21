@@ -92,7 +92,7 @@ byte aLawEncode(int linear)
 
 /*! \brief Decode an A-law sample to a linear value.
  \param alaw The A-law sample to decode.
- \return The linear value.
+ \return The linear value (signed 13bit) 
  */
 int16_t aLawDecode(byte alaw)
 {

@@ -1,6 +1,6 @@
 /*Timer2 generates PCLK at 256kHz.  That's the lowest permissible rate.
  *The original idea was to generate the FSYNC signal in the ISR of timer2 compare, but
- *There are only 64 cycles available as the ISR runs at 256kHz.  Besides, there would be 
+ *There are only 64 processor cycles available as the ISR runs at 256kHz.  Besides, there would be 
  *hardly time left to do other useful work.
  *So the alternative is to generate the 7.8kHz FSYNC with timer1.
  *
@@ -81,11 +81,19 @@ void setupPcmGateway(){
   TCNT2=43;
 }
 
+//This time routine will be executed at a rate of 7.8KHz.
+//Only every two interrupts will the other interrupt (for shifting data) be enabled.
+//So data will only be sampled at 3.9KHz instead of 7.8KHz.  According to some papers, this only slightly affects voice quality (but it reduces data transfer by a factor of two).
 ISR(TIMER1_OVF_vect)
 {
-  bitSet(TIMSK2,OCIE2A);           //Enable interrupt on OCR2B compare match
-  yCycleCtr=0;
-  TIMSK0&=0xFE;                    //Disable interrupts on timer0, because it causes jitter on TIMER2-interrupts.
+  static boolean bTrig=false;
+  if(bTrig==false)
+  {
+    bitSet(TIMSK2,OCIE2A);           //Enable interrupt on OCR2B compare match
+    yCycleCtr=0;
+    TIMSK0&=0xFE;                    //Disable interrupts on timer0 (used by Arduino internally), because it causes jitter on TIMER2-interrupts.
+  }
+  bTrig=~bTrig;
 }
 
 //Interrupt routine for shifting in & out data from & to SLIC
@@ -118,4 +126,5 @@ ISR(TIMER2_COMPA_vect){
     }    
   }
 }
+
 
