@@ -15,6 +15,15 @@ boolean writeVerifyIndirectReg(INDIRECT_REGISTERS yAddress, word wValue);
 
 const byte VBATL=40;
 
+boolean loopClosureDetected(){
+  byte yVal=readSPI(INT_STAT_2);
+  if(yVal & 0x2){
+    writeSPI(INT_STAT_2,2);
+    return true;
+  }
+  return false;
+}
+
 boolean setupVoiceChannel(){
   if(!writeVerifySPI(PCM_TX_STARTL,0x02))return false;      //delay TXD by two PCLKs
 }
@@ -213,8 +222,9 @@ boolean slicInit(unsigned long timeout_s){
   writeSPI(INT_STAT_2,0xFF);
   writeSPI(INT_STAT_3,0xFF);  
   //Enable interrupts
-  if(!writeVerifySPI(INT_EN_1,0))return false;                                         //disable all interrupts
-  if(!writeVerifySPI(INT_EN_2,0xFF))return false; 
+  if(!writeVerifySPI(INT_EN_1,0))return false;                                         //disable timer interrupts
+  if(!writeVerifySPI(INT_EN_2,0xFF))return false;                                      //enable power alarm + loop closure transition (on<->off hook)
+                                                                                       // + ring trip (off-hook during ringing)
   if(!writeVerifySPI(INT_EN_3,1))return false;                                         //enable DTMF-interrupts
   //set up PCM clock slot assignment
   if(!writeVerifySPI(PCM_TX_STARTL,0))return false; 
@@ -232,6 +242,12 @@ boolean slicInit(unsigned long timeout_s){
   //Write detect thresholds and filters
   if(!writeVerifySPI(LOOP_CLOSURE_DEBOUNCE_AR, 0x54))return false;                     //loop closure debounce interval for ringing silent period: 105 ms
   if(!writeVerifySPI(AUTO_MAN_CTRL, 0x1f))return false;	                               //auto-manual control: all auto
+  //Belgacom pulse dialing: 
+  //timeout before first digit reception=30s
+  //minimum closure=25ms, 
+  //minimum opening=53ms, 
+  //pulse cadence: 8 to 12 Hz, 
+  //interdigit time: min=400ms, max=12s
   if(!writeVerifySPI(LOOP_CLOSURE_DEBOUNCE, 0x0a))return false;                        //loop closure debounce interval): 12.5 ms
   if(!writeVerifySPI(RTDI, 0x0a))return false;                                         //ring trip debounce interval: 12.5 ms
   //write DC feed parameters
