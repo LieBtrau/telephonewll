@@ -3,6 +3,7 @@
 
 #include <SPI.h>
 #include "slic.h"
+#include "RotaryDialer.h"
 
 boolean inDirectAccessFree();
 boolean writeVerifyIndirectReg(INDIRECT_REGISTERS yAddress, word wValue);
@@ -14,14 +15,19 @@ boolean writeIndirectReg(INDIRECT_REGISTERS yAddress, word wValue);
 boolean writeVerifyIndirectReg(INDIRECT_REGISTERS yAddress, word wValue);
 
 const byte VBATL=40;
+extern RotaryDialer rd;
 
-boolean loopClosureDetected(){
+ISR(INT0_vect)
+{
   byte yVal=readSPI(INT_STAT_2);
-  if(yVal & 0x2){
-    writeSPI(INT_STAT_2,2);
-    return true;
+  if(yVal & 0x2){                                            //Check if Loop closure-opening happened
+    writeSPI(INT_STAT_2,2);                                  //Clear the pending interrupt in the SLIC
+    
+    yVal=readSPI(LOOP_COND_IND);                             //LCR-bit (bit0) will be one when loop closure has been detected.
+    rd.updatePulseState(yVal & 0x01);
   }
-  return false;
+  writeSPI(INT_STAT_2,0xFF);                                //Clear all pending interrupts for interrupt register 2
+  writeSPI(INT_STAT_3,0x01);                                //Clear pending DTMF interrupts
 }
 
 boolean setupVoiceChannel(){
@@ -244,10 +250,6 @@ boolean slicInit(unsigned long timeout_s){
   if(!writeVerifySPI(AUTO_MAN_CTRL, 0x1f))return false;	                               //auto-manual control: all auto
   //Belgacom pulse dialing: 
   //timeout before first digit reception=30s
-  //minimum closure=25ms, 
-  //minimum opening=53ms, 
-  //pulse cadence: 8 to 12 Hz, 
-  //interdigit time: min=400ms, max=12s
   if(!writeVerifySPI(LOOP_CLOSURE_DEBOUNCE, 0x0a))return false;                        //loop closure debounce interval): 12.5 ms
   if(!writeVerifySPI(RTDI, 0x0a))return false;                                         //ring trip debounce interval: 12.5 ms
   //write DC feed parameters

@@ -60,13 +60,3 @@ word get_crc(byte* buf, byte length){
   return crc;
 }//get_crc
 
-//http://www.nongnu.org/avr-libc/user-manual/group__util__crc.html
-//word _crc_ccitt_update(word crc, byte data)
-//{
-//  data ^= (byte)(crc & 0xFF);
-//  data ^= (byte)(data << 4);
-//  return (word)(((((word)data << 8) | ((crc>>8) & 0xFF)) ^ (byte)(data >> 4) ^ ((word)data << 3)));
-//}
-
-
-
