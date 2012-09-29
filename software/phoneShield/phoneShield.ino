@@ -8,6 +8,7 @@
 #include "oki_adpcm.h"
 #include "neoRs232.h"
 #include "RingBuffer.h"
+#include "RotaryDialer.h"
 
 typedef enum{
   REQ_OKI_DATA,
@@ -23,8 +24,10 @@ byte frameData[FRAMESIZE];
 //Buffer that contains data that must be sent
 byte sendData[FRAMESIZE];
 RingBuffer rb(100);
+RotaryDialer rd;
 
 void setup() {
+  rd=RotaryDialer();
   Serial.begin(115200);
   Serial.println("Welcome to POTSduino!");
   pinMode(PIN_RESET,OUTPUT);
@@ -54,16 +57,17 @@ void setup() {
   Serial.println("Initialisation success");
 
   receiveInit(&framer, frameData);
-  
+  rd.setup();
   //ringing(true);
 }//setup
 
 void loop() {
+  byte yDialednumber;
   receiveRun(&framer);
-  if(loopClosureDetected()){
-    Serial.println("closed");
+  if(rd.getNextNumber(yDialednumber))
+  {
+    Serial.print(yDialednumber,DEC);
   }
-
 //  static byte stateSM=0;
 //  static byte i=0;
 //  static oki_adpcm_state_t okiState;

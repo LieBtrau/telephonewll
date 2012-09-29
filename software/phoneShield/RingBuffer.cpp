@@ -7,12 +7,7 @@
 #include "RingBuffer.h"
 
 // AVR LibC Includes
-//#include <inttypes.h>
 #include <stdlib.h>
-
-// Wiring Core Includes
-//#undef abs
-//#include "WConstants.h"
 
 RingBuffer::RingBuffer(int size)
 : size(size), start(0), end(0), cnt(0)

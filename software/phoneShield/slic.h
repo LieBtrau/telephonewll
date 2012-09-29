@@ -115,6 +115,5 @@ boolean slicInit(unsigned long timeout_s);
 void ringing(boolean bOn);
 boolean offHook(void);
 boolean enableDiallingTone(void);
-boolean loopClosureDetected(void);
 #endif
 
