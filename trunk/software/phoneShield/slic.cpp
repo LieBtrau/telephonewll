@@ -20,14 +20,22 @@ extern RotaryDialer rd;
 ISR(INT0_vect)
 {
   byte yVal=readSPI(INT_STAT_2);
-  if(yVal & 0x2){                                            //Check if Loop closure-opening happened
+  if(yVal & 0x2)
+  {                                                          //Check if Loop closure-opening happened
     writeSPI(INT_STAT_2,2);                                  //Clear the pending interrupt in the SLIC
     
     yVal=readSPI(LOOP_COND_IND);                             //LCR-bit (bit0) will be one when loop closure has been detected.
     rd.updatePulseState(yVal & 0x01);
   }
   writeSPI(INT_STAT_2,0xFF);                                //Clear all pending interrupts for interrupt register 2
-  writeSPI(INT_STAT_3,0x01);                                //Clear pending DTMF interrupts
+  yVal=readSPI(INT_STAT_3);
+  if(yVal & 0x1)
+  {
+    writeSPI(INT_STAT_3,0x01);                                //Clear pending DTMF interrupts
+    //DTMF detected
+    yVal=readSPI(DTMF_DECODE);
+    Serial.println(yVal & 0x1F,HEX);
+  }
 }
 
 boolean setupVoiceChannel(){
