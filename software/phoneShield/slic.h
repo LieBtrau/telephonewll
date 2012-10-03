@@ -17,6 +17,7 @@ typedef enum{
   INT_EN_1=21,
   INT_EN_2=22,
   INT_EN_3=23,
+  DTMF_DECODE=24,
   IND_DAT_ACC_L=28,
   IND_DAT_ACC_H=29,
   IND_ADDR=30,
