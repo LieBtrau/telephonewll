@@ -1,5 +1,8 @@
 =Shield=
 ==Component selection==
+===No telephony hardware===
+ * [https://www.sparkfun.com/products/9803 Bluetooth Portable Rotary Phone - Black]
+  * Needs significant changes to the original telephone hardware.
 ===Modules solutions===
  * [http://www.silvertel.com/tel_products.htm Silvertel SLICs]
   * Some have integrated ringing generator, no HV needed.
