@@ -1,16 +1,22 @@
 =Shield=
 ==Component selection==
+===Modules solutions===
+ * [http://www.silvertel.com/tel_products.htm Silvertel SLICs]
+  * Some have integrated ringing generator, no HV needed.
+  * No DTMF decoding
+  * ADC/DAC needed (maybe MCU peripheral)
+===Single chip solutions===
 Search on the internet for: [http://lmgtfy.com/?q=SLIC+interface SLIC-interface]
  * STLC3080: not chosen, can't create ringing signal automatically
  * STLC3075: 
   * created especially for wireless local loops
   * it's hard to get (not available at RS, Farnell, Mouser, Digikey)
   * ST states it as an obsolete component
- * [http://www.silabs.com/Marcom%20Documents/Resources/Si3210ProductBrief.pdf Si3210M-FT]
+ * *[http://www.silabs.com/Marcom%20Documents/Resources/Si3210ProductBrief.pdf Si3210-FT]*
   * active high for enabling DC for ringer
   * € 7,84 at Mouser
   * Extra Si3201-GS (€1.83) needed, or using lots of discrete components
- * *[http://www.silabs.com/Marcom%20Documents/Resources/Si3210ProductBrief.pdf SI3210-GT]* 
+ * [http://www.silabs.com/Marcom%20Documents/Resources/Si3210ProductBrief.pdf SI3210-GT] 
   * active low for enabling DC for ringer
   * € 7,03 at Mouser
   * Extra Si3201-GS (€1.83) needed, or using lots of discrete components
