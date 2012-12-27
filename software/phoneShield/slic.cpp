@@ -155,7 +155,10 @@ boolean slicInit(unsigned long timeout_s){
   do{
     val=readSPI(VBAT_SNS_1);                                           //Poll the battery voltage and wait until it reaches the desired value
     delay(10);
-    if(millis()-startTime>1000)return false;
+    if(millis()-startTime>1000){
+      Serial.println("VBAT doesn't reach desired value.");
+      return false;
+    }
   }while((val>>2)<VBATL);                                              //battery voltage is sensed in 0.376V steps, while VBATL is set in 1.5V steps (= about 4*0.376)
 
   val=readSPI(DCDC_SW_DELAY);
@@ -280,6 +283,9 @@ byte readSPI(DIRECT_REGISTERS yAddress){
   byte yVal=0;
   digitalWrite(PIN_nCS,LOW);
   SPI.transfer(0X80 | yAddress);
+  digitalWrite(PIN_nCS,HIGH);
+  delayMicroseconds(1);
+  digitalWrite(PIN_nCS,LOW);
   yVal=SPI.transfer(0);
   digitalWrite(PIN_nCS,HIGH);
   return yVal;
@@ -288,6 +294,9 @@ byte readSPI(DIRECT_REGISTERS yAddress){
 void writeSPI(DIRECT_REGISTERS yAddress, byte yData){
   digitalWrite(PIN_nCS,LOW);
   SPI.transfer(0X7F & yAddress);
+  digitalWrite(PIN_nCS,HIGH);
+  delayMicroseconds(1);
+  digitalWrite(PIN_nCS,LOW);
   SPI.transfer(yData);
   digitalWrite(PIN_nCS,HIGH);
 }

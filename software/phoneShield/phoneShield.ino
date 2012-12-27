@@ -34,14 +34,14 @@ void setup() {
   pinMode(PIN_FSYNC,OUTPUT);                 //OC1A-pin set as output 
   pinMode(PIN_PCLK,OUTPUT);                  //OC2B-pin set as output
   pinMode(PIN_nCS,OUTPUT);
-  pinMode(PIN_MOSI, OUTPUT);
   pinMode(PIN_DRX, OUTPUT);
   pinMode(PIN_DTX, INPUT);
+  pinMode(PIN_MISO, INPUT_PULLUP);
   pinMode(6,OUTPUT);//debugging
+  digitalWrite(6,LOW);//debugging
   digitalWrite(PIN_DRX, LOW);
 
-  digitalWrite(PIN_RESET, LOW);                //Put SLIC into reset
-
+  digitalWrite(PIN_RESET, LOW);              //Put SLIC into reset
   setupPcmGateway();
   digitalWrite(PIN_nCS, HIGH);
   SPI.setBitOrder(MSBFIRST);
@@ -52,11 +52,11 @@ void setup() {
   delay(10);                                 //Wait 10ms.
   if(!slicInit(10)){
     Serial.println("Initialisation failed");
-    return;
+     return;
   }
   Serial.println("Initialisation success");
 
-  receiveInit(&framer, frameData);
+  //receiveInit(&framer, frameData);
   rd.setup();
   //ringing(true);
 }//setup

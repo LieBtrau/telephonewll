@@ -49,7 +49,7 @@ byte PCMcomm(byte data){
 void setupPcmGateway(){
   //http://arduino.cc/en/Tutorial/SecretsOfArduinoPWM
 
-  //Setting up PCLK: 256kHz, duty cycle 50% (4 timeslots/frame)
+  //Setting up PCLK: 250kHz, duty cycle 50% (4 timeslots/frame)
   bitClear(PRR,PRTIM2);            //Power up Timer2
   bitSet(TCCR2B,WGM22);            //Put timer 2 in fast PWM-mode with top at OCR2A
   bitSet(TCCR2A,WGM21);
@@ -60,7 +60,7 @@ void setupPcmGateway(){
   bitClear(TCCR2B, CS21);
   bitSet(TCCR2B, CS20);
   OCR2A=63;                        //In fast PWM-mode, timer will be cleared when it reaches OCR2A value.
-  //So the timer frequency becomes: fclk/(N*(1+OCR2A)) = 16M/(1*(1+63))=256kHz
+  //So the timer frequency becomes: fclk/(N*(1+OCR2A)) = 16M/(1*(1+63))=250kHz
   OCR2B=31;                        //50% dutycycle clock on OC2B-pin.
 
   //Setting up FSYNC: 7.8kHz, duty cycle=1/32, synchronous rising edge with PCLK.
@@ -78,7 +78,7 @@ void setupPcmGateway(){
 
   //Synchronizing timer1 & timer2 (using only an old HM412 scope)
   TCNT1=0;
-  TCNT2=43;
+  TCNT2=36;
 }
 
 //This time routine will be executed at a rate of 7.8KHz.
