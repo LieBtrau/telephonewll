@@ -109,7 +109,7 @@ const byte PIN_DRX=7;
 const byte PIN_DTX=8;
 const byte PIN_FSYNC=9;
 const byte PIN_nCS=10;
-const byte PIN_MOSI=11;
+const byte PIN_MISO=12;
 
 boolean setupVoiceChannel(void);
 boolean slicInit(unsigned long timeout_s);
