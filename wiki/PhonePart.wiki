@@ -8,10 +8,12 @@
   * Some have integrated ringing generator, no HV needed.
   * No DTMF decoding
   * ADC/DAC needed (maybe MCU peripheral)
- * China copies
+ * E-tross China copies
   * QCX601 =? AG1170
   * MX801 =? AG1171
   * QCX2102
+ * R-tone China copies
+  * [http://www.r-tone.com/en/ProductList.asp?SortID=19 KS0835, KS0805, ...]
 ===Single chip solutions===
 Search on the internet for: [http://lmgtfy.com/?q=SLIC+interface SLIC-interface]
  * STLC3080: not chosen, can't create ringing signal automatically
