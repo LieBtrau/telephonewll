@@ -4,8 +4,8 @@ Version=1.0
 [OutputGroup1]
 Name=EuroCircuits2Layer.OutJob
 Description=
-TargetOutputMedium=Publish To PDF
-VariantName=R1.00
+TargetOutputMedium=Copy of New Print Job
+VariantName=[No Variations]
 VariantScope=1
 CurrentConfigurationName=
 TargetPrinter=PDFill PDF&Image Writer
@@ -24,14 +24,14 @@ OutputMedium4_Printer=\\HPGC2\0 HP LaserJet 1200 Series PCL
 OutputMedium4_PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintWhat=0
 OutputMedium5=Copy of New Print Job
 OutputMedium5_Type=Printer
-OutputMedium5_Printer=\\HPGC2\0 HP LaserJet 1200 Series PCL
+OutputMedium5_Printer=PDFill PDF&Image Writer
 OutputMedium5_PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintWhat=1
 OutputType1=Schematic Print
 OutputName1=Schematic Prints
 OutputCategory1=Documentation
 OutputDocumentPath1=[Project Physical Documents]
 OutputVariantName1=
-OutputEnabled1=1
+OutputEnabled1=0
 OutputEnabled1_OutputMedium1=0
 OutputEnabled1_OutputMedium2=2
 OutputEnabled1_OutputMedium3=0
@@ -46,7 +46,7 @@ OutputName2=Assembly Drawings
 OutputCategory2=Assembly
 OutputDocumentPath2=
 OutputVariantName2=
-OutputEnabled2=1
+OutputEnabled2=0
 OutputEnabled2_OutputMedium1=0
 OutputEnabled2_OutputMedium2=1
 OutputEnabled2_OutputMedium3=0
@@ -66,20 +66,12 @@ Configuration2_Name5=OutputConfigurationParameter5
 Configuration2_Item5=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=Mechanical4|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
 Configuration2_Name6=OutputConfigurationParameter6
 Configuration2_Item6=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=Mechanical3|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
-Configuration2_Name7=OutputConfigurationParameter7
-Configuration2_Item7=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=False|Index=1|Mirror=True|Name=Bottom Assembly Drawing|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=False|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
-Configuration2_Name8=OutputConfigurationParameter8
-Configuration2_Item8=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=Mechanical8|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
-Configuration2_Name9=OutputConfigurationParameter9
-Configuration2_Item9=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=Mechanical5|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
-Configuration2_Name10=OutputConfigurationParameter10
-Configuration2_Item10=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=BottomOverlay|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
 OutputType3=BOM_PartType
 OutputName3=Bill of Materials
 OutputCategory3=Report
 OutputDocumentPath3=
 OutputVariantName3=
-OutputEnabled3=1
+OutputEnabled3=0
 OutputEnabled3_OutputMedium1=0
 OutputEnabled3_OutputMedium2=3
 OutputEnabled3_OutputMedium3=0
@@ -127,12 +119,12 @@ Configuration5_Name1=OutputConfigurationParameter1
 Configuration5_Item1=BoardEdgeRoutToolDia=2000000|GenerateBoardEdgeRout=False|GenerateDrilledSlotsG85=False|GenerateEIADrillFile=False|GenerateSeparatePlatedNonPlatedFiles=False|NumberOfDecimals=4|NumberOfUnits=4|OptimizeChangeLocationCommands=True|OriginPosition=Relative|Record=DrillView|Units=Metric|ZeroesMode=SuppressLeadingZeroes
 
 [PublishSettings]
-OutputFilePath2=C:\Users\ct\Documents\PersonalProjects\telephoneWll\hardware\PotsDuino\.\BRD110731_R1.00.PDF
+OutputFilePath2=C:\Users\ct\Documents\PersonalProjects\telephoneWll\hardware\PotsDuino\.\BRD111107_R1.00.PDF
 ReleaseManaged2=0
 OutputBasePath2=.\
 OutputPathMedia2=
 OutputPathOutputer2=[Output Type]
-OutputFileName2=BRD111107_R1.00.PDF
+OutputFileName2=BRD111107_R2.00.PDF
 OpenOutput2=1
 PromptOverwrite2=1
 PublishMethod2=0
@@ -153,7 +145,7 @@ OutputFileName3=
 OpenOutput3=0
 
 [GeneratedFilesSettings]
-RelativeOutputPath2=C:\Users\ct\Documents\PersonalProjects\telephoneWll\hardware\PotsDuino\.\BRD110731_R1.00.PDF
+RelativeOutputPath2=C:\Users\ct\Documents\PersonalProjects\telephoneWll\hardware\PotsDuino\.\BRD111107_R1.00.PDF
 OpenOutputs2=1
 RelativeOutputPath3=C:\Users\ct\Documents\PersonalProjects\telephoneWll\hardware\PotsDuino\.\
 OpenOutputs3=0
