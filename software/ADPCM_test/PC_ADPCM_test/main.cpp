@@ -6,11 +6,13 @@
 using namespace std;
 #define PI 3.14159265
 
+typedef unsigned char byte;
+
 int main()
 {
     oki_adpcm_state_t okiEncoder, okiDecoder;
-    int dataIn, dataOut;
-    unsigned char okiByte;
+    short dataIn, dataOut;
+    byte okiByte;
 
     //Reset OKI-ADPCM encoder & decoder
     okiEncoder.last=0;//half-scale
@@ -27,12 +29,16 @@ int main()
     }
 
     for(int i=-90;i<90;i++){
-        //Generate 12bit data
-        dataIn=sin(i*PI/180) * 32768;
+        byte yDataIn=(sin(i*PI/180)+1)*128;
 
+        //Convert byte data to data for OKI-encoder
+        dataIn=(yDataIn-128)<<8;
         okiByte=oki_encode(&okiEncoder, dataIn);
         dataOut=oki_decode(&okiDecoder, okiByte)<<4;
-        printf("%X %d %d\n",okiByte, dataIn, dataOut);
+        //Convert output of OKI-decoder back to bytes
+        byte yDataOut=(dataOut>>8)+128;
+
+        printf("%d %d %d %d\n",yDataIn, dataIn, dataOut, yDataOut);
     }
     return 0;
 }
