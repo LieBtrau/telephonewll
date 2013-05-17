@@ -8,12 +8,18 @@
   * Some have integrated ringing generator, no HV needed.
   * No DTMF decoding
   * ADC/DAC needed (maybe MCU peripheral)
+  * Hard/Expensive to get (shipping costs are a multiple of the value of the module)
  * E-tross China copies
   * QCX601 =? AG1170
   * MX801 =? AG1171
   * QCX2102
  * R-tone China copies
   * [http://www.r-tone.com/en/ProductList.asp?SortID=19 KS0835, KS0805, ...]
+  * [http://www.aliexpress.com/store/product/RING-SLIC-module-KS0835F-same-as-AG1171-AG1170/203008_535930990.html I ordered KS0835F product here (cheap & fast delivery)]
+  * [http://www.r-tone.com/Upload/DownFiles/KS0835F_SLIC_SPEC_V1_1.pdf Datasheet of KS0835F]
+   * KS0835F is much cheaper than SI3210 + SI3201
+   * Much easier to implement
+   * It's a separate module, so maybe you'll need a bigger housing.
 ===Single chip solutions===
 Search on the internet for: [http://lmgtfy.com/?q=SLIC+interface SLIC-interface]
  * STLC3080: not chosen, can't create ringing signal automatically
