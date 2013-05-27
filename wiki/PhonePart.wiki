@@ -17,11 +17,16 @@
   * [http://www.r-tone.com/en/ProductList.asp?SortID=19 KS0835, KS0805, ...]
   * [http://www.aliexpress.com/store/product/RING-SLIC-module-KS0835F-same-as-AG1171-AG1170/203008_535930990.html I ordered KS0835F product here (cheap & fast delivery)]
   * [http://www.r-tone.com/Upload/DownFiles/KS0835F_SLIC_SPEC_V1_1.pdf Datasheet of KS0835F]
+   * KS0835F = AG1171
    * KS0835F is much cheaper than SI3210 + SI3201
    * Much easier to implement
    * It's a separate module, so maybe you'll need a bigger housing.
 ===Single chip solutions===
 Search on the internet for: [http://lmgtfy.com/?q=SLIC+interface SLIC-interface]
+ * Intersil HC55185:
+  * Yet to be investigated.
+  * Available at [http://be.mouser.com/ProductDetail/Intersil/HC55185DIMZ/?qs=%2fha2pyFaduh7RyBEUrtKaUaC43acXUnqGr8WYToSvGQ%3d Mouser]
+  * €6.83/pce
  * STLC3080: not chosen, can't create ringing signal automatically
  * STLC3075: 
   * created especially for wireless local loops
@@ -37,6 +42,7 @@ Search on the internet for: [http://lmgtfy.com/?q=SLIC+interface SLIC-interface]
   * Extra Si3201-GS (€1.83) needed, or using lots of discrete components
   * When ringer is needed, this circuit can not work on 3.3V (datasheet table 21)
  * Si3215 & Si3216 are harder to get (non-stock at Mouser)
+
 
 The design of [http://code.google.com/p/openusbfxs/  OpenUsbFxs], as well as the numerous Silicon Labs application notes, were a good starting point for me.
 I calculated some component values for the interface myself, but I'll start by using the OpenUsbFxs schematic.  Just to be sure.
@@ -55,6 +61,9 @@ Revision 0
 Revision 1
  * [http://telephonewll.googlecode.com/files/BRD111107_1.zip PCB-data]
  * [http://telephonewll.googlecode.com/files/BRD111107_R1.00.PDF PDF-data]
+
+Revision 2
+ * [http://telephonewll.googlecode.com/files/BRD111107_2.JPG Picture]
 
 =Baseboard=
 Several options possible:
