@@ -54,16 +54,17 @@ It could also be used for Arduino users (if they want to create software drivers
 
 [http://telephonewll.googlecode.com/files/POTSduino_large_R0.png http://telephonewll.googlecode.com/files/POTSduino_small_R0.png]
 
-Revision 0
+Revision_ 0_
  * [http://telephonewll.googlecode.com/files/BRD110731_0.zip PCB-data]
  * [http://telephonewll.googlecode.com/files/POTSduino_0.PDF PDF-data]
 
-Revision 1
+Revision_ 1_
  * [http://telephonewll.googlecode.com/files/BRD111107_1.zip PCB-data]
  * [http://telephonewll.googlecode.com/files/BRD111107_R1.00.PDF PDF-data]
 
-Revision 2
+Revision_ 2_
  * [http://telephonewll.googlecode.com/files/BRD111107_2.JPG Picture]
+ * [http://telephonewll.googlecode.com/files/BRD111107_R2.00.PDF Design data]
 
 =Baseboard=
 Several options possible:
