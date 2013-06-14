@@ -75,8 +75,22 @@ The components that have been investigated can be found below:
  * Bluetooth
   * Slow wakeup from sleep (typically 3 seconds)
   * Originally designed to replace RS232 cables -> simple implementation.
-  * [http://be.farnell.com/microchip/rn52-i-rm/module-rn52-bluetooth-3-0-audio/dp/2291925 Roving Network RN-52: BlueTooth Audio Module with internal antenna]
-  * [http://be.farnell.com/lm-technologies/lm740/module-bt2-1-class1-csr-bc05/dp/2102737 LM-Techologies LM740: BlueTooth Multimedia module with external antenna]
+  * [http://be.farnell.com/anaren/a8520e24a91gm/radio-module-txrx-cc8520-int-ant/dp/2096157 ANAREN - A8520E24A91GM: Bluetooth Audio module]
+   * internal antenna 
+   * 150m range outside, 30m range inside
+   * 16dBm output power / -87dBm sensitivity
+   * 48mA current consumption
+   * Evaluation board available: [http://be.farnell.com/anaren/a8520e24a91-em2/eval-module-a8520e24a91-audio/dp/2096139?in_merch=true&MER=i-9b10-00001460 A8520E24A91-EM2]
+  * [http://be.farnell.com/microchip/rn52-i-rm/module-rn52-bluetooth-3-0-audio/dp/2291925 Roving Network RN-52: Bluetooth Audio Module]
+   * internal antenna
+   * limited range: 10m
+   * 4dBm output power / -85dBm sensitivity
+   * 30mA current consumption
+  * [http://be.farnell.com/lm-technologies/lm740/module-bt2-1-class1-csr-bc05/dp/2102737 LM-Techologies LM740: Bluetooth Multimedia module]
+   * external antenna
+   * limited range: 25m open space
+   * 4dBm output power / -82dBm sensitivity
+   * 30mA-40mA current consumption
  * Z-Wave
   * Too slow (only 40kbps)
 ==Wireless modules==
