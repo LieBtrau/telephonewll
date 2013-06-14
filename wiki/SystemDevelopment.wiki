@@ -75,6 +75,8 @@ The components that have been investigated can be found below:
  * Bluetooth
   * Slow wakeup from sleep (typically 3 seconds)
   * Originally designed to replace RS232 cables -> simple implementation.
+  * [http://be.farnell.com/microchip/rn52-i-rm/module-rn52-bluetooth-3-0-audio/dp/2291925 Roving Network RN-52: BlueTooth Audio Module with internal antenna]
+  * [http://be.farnell.com/lm-technologies/lm740/module-bt2-1-class1-csr-bc05/dp/2102737 LM-Techologies LM740: BlueTooth Multimedia module with external antenna]
  * Z-Wave
   * Too slow (only 40kbps)
 ==Wireless modules==
