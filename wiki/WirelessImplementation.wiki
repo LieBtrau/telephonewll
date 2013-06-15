@@ -1,3 +1,8 @@
+Below you can find the wireless protocols and modules I have been looking into.
+As it seems now, the simplest implementation will be using a Bluetooth audio module.
+These modules allow to simply connect the analog audio lines from the SLIC to the module (maybe using some analog intermediate circuitry).
+All the other modules only accept digital data, so they need an extra ADC/DAC and CODEC stage.
+
  * IEEE802.15.4
   * Low cost modules available
   * Low power (only 1/3 of Bluetooth)
@@ -11,6 +16,8 @@
  * Zigbee
   * Uses IEEE802.15.4 for the lower OSI-layers
   * Three types of devices: coordinators, routers & endpoints
+  * [http://be.farnell.com/jennic/jn5139-z01-m01r1v/zigbee-mod-2-4ghz-uart-sma-conn/dp/1500176 Jennic JN513x]
+   * There is a [http://www.jennic.com/support/support_files/jn-rd-6004_wireless_audio_reference_design wireless audio reference design] for this
  * Zigbee Pro
   * Zigbee pro offers multicasting, sharing secret keys.
   * Zigbee pro is backwards compatible with Zigbee
