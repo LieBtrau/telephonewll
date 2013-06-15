@@ -1,0 +1,79 @@
+ * IEEE802.15.4
+  * Low cost modules available
+  * Low power (only 1/3 of Bluetooth)
+  * Fast wake-up from sleep (tens of milliseconds)
+  * Non-beacon & beacon mode (non-beacon mode seems to be faster)
+   * Beacon: routers send beacon signal at regular intervals.  All nodes must be awake at that instant in order to receive it.  Precise timing is needed for intervals.
+   * Non-beacon: no device needs to be awake regularly.
+  * 81 bytes/packet available for upper OSI-layers
+  * 2.4GHz-band -> 250kbps (over the air rate)
+  * 868MHz-band -> 20kbps (over the air rate)
+ * Zigbee
+  * Uses IEEE802.15.4 for the lower OSI-layers
+  * Three types of devices: coordinators, routers & endpoints
+ * Zigbee Pro
+  * Zigbee pro offers multicasting, sharing secret keys.
+  * Zigbee pro is backwards compatible with Zigbee
+ * RF4CE
+  * Uses IEEE802.15.4 for the lower OSI-layers
+  * Designed to replace remote controls, but it has already been used to make phone calls with it.  See [http://www.google.be/url?sa=t&source=web&cd=1&ved=0CB4QtwIwAA&url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DNhzwm5vgUPc&ei=KADcTYyNNcqeOuTuyfcO&usg=AFQjCNHdgcaPxPAbvCjx5rINE4rpEvgiiw YouTube].
+  * Supported by different manufacturers: TI (RemoTI), FreeScale (Beestack Consumer), Renesas, [http://www.st.com/internet/evalboard/product/247094.jsp ST], ...
+  * Smaller code size than Zigbee (because mesh-networking is not needed)
+ * DASH7
+  * Very new, nothing available yet (anno 2011)
+  * DASH7 module 500kbps over-the-air at 433MHz (only one module found)
+ * Bluetooth
+  * Slow wakeup from sleep (typically 3 seconds)
+  * Originally designed to replace RS232 cables -> simple implementation.
+  * [http://be.farnell.com/anaren/a8520e24a91gm/radio-module-txrx-cc8520-int-ant/dp/2096157 ANAREN - A8520E24A91GM: Bluetooth Audio module]
+   * internal antenna 
+   * 150m range outside, 30m range inside
+   * 16dBm=40mW output power (Class 1)/ -87dBm sensitivity
+   * 48mA current consumption
+   * Evaluation board available: [http://be.farnell.com/anaren/a8520e24a91-em2/eval-module-a8520e24a91-audio/dp/2096139?in_merch=true&MER=i-9b10-00001460 A8520E24A91-EM2]
+  * [http://be.farnell.com/microchip/rn52-i-rm/module-rn52-bluetooth-3-0-audio/dp/2291925 Roving Network RN-52: Bluetooth Audio Module]
+   * internal antenna
+   * limited range: 10m
+   * 4dBm=2.5mW output power (Class 2)/ -85dBm sensitivity
+   * 30mA current consumption
+  * [http://be.farnell.com/lm-technologies/lm740/module-bt2-1-class1-csr-bc05/dp/2102737 LM-Techologies LM740: Bluetooth Multimedia module]
+   * external antenna
+   * limited range: 25m open space
+   * 4dBm=2.5mW output power (Class 2)/ -82dBm sensitivity
+   * 30mA-40mA current consumption
+ * Z-Wave
+  * Too slow (only 40kbps)
+ * ISM-Band sub 1GHz: Proprietary protocols
+  * [http://shop.ciseco.co.uk/arf-high-power-radio-transceiver/ Ciseco ARF]:
+   * ISM Band (868MHz & 915MHz)
+  * [http://shop.ciseco.co.uk/xrf-wireless-rf-radio-uart-rs232-serial-data-module-xbee-shape-arduino-pic-etc/ Ciseco XRF]
+   * TI CC1110 Radio
+   * 10dBm output power /
+  * [http://be.farnell.com/amber-wireless/amb8425/rf-module-txrx-cc1101-ext-ant/dp/1749514 Amber Wireless AMB8425]
+   * Comparable to Ciseco, but not configurable, only 868MHz band.
+   * External antenna, the AMB8420 has an internal antenna.
+
+==Wireless modules==
+
+Microchip IEEE802.15.4 modules:
+
+||Product Family	||Sensitivity dBm	||Power Output dBm	||RSSI	||TX Power Consumption mA	||RX Power Consumption mA	||Clock	||Sleep	||MAC	||MAC Features	||Encryption	||Interface	||Pin Count	||
+||MRF24J40MA	||-95.00		||0.00			||Yes	||23.00			||19.00			||20 MHz	||Yes	||Yes	||CSMA-CA		||AES128		||4-wire SPI	||12		||
+||MRF24J40MB	||-102.00		||20.00			||Yes	||120.00			||25.00			||20 MHz	||Yes	||Yes	||CSMA-CA		||AES128		||4-wire SPI	||12		||
+
+These modules can handle Zigbee, but that's not necessary.  Because some people find Zigbee too complex, Microchip has its own lightweight (small) protocol stack (MiWi).
+
+RS: overview of Zigbee modules (sorting ascending on price):
+ * Microchip's modules are cheapest, no stack included, it's only a radio -> Use MiWi (30kbps) or Zigbee or ...
+ * Telegesis: stack included datarate: 20kbps.
+ * Atmel: zigbit: only a radio: 2 protocol stacks available
+ * XBee: protocol stack included. (cheapest bij Mouser)
+
+===Modules verification===
+What's the throughput of serial wireless modules?  A solution in C# has been developed to test this.  It consists of two projects, one for sending bytes and one for receiving bytes.
+The sending application opens the serial port with RTS/CTS flow control to prevent overflow of buffers in the transmitting module.  The application sends bytes as long as the transmitting module is requesting them by holding /CTS-low.
+
+The receiving module starts a timer, then receives all the bytes until the timer runs out, typically after ten seconds.  The number of bytes received is multiplied by eight to get the number of received bits and afterwards divided by the timer period to get the throughput baudrate.
+
+ * XBee Pro modules: 86kbps - 89kbps (<0.5m interdistance).
+ * Radiotronix modules: NT
