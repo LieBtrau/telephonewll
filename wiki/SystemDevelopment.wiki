@@ -3,6 +3,7 @@
 =System Development=
 
  * [PhonePart]
+ * [WirelessImplementation]
 
 ==Base Station part==
 ===Hardware===
