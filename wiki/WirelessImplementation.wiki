@@ -33,11 +33,29 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
  * Bluetooth
   * Slow wakeup from sleep (typically 3 seconds)
   * Originally designed to replace RS232 cables -> simple implementation.
+  * [http://www.digikey.be/search/en/RF-IF-and-RFID/RF-Transceivers/4174?keywords=BTM511 LairdTech BTM511]
+   * integrated antenna
+   * has an analog audio interface
+   * 4dBm output power / -86dBm sensitivity
+   * 70mA current consumption max.
+   * CSR's apt-X codec
+   * HSP, HFP, A2DP, and AVRCP Bluetooth audio profiles
+   * SPP (Bluetooth Serial port profile)
+   * [http://www.lairdtech.com/Products/Embedded-Wireless-Solutions/Bluetooth-Radio-Modules/BTM51x-Modules/ Info]
+  * [http://be.farnell.com/lm-technologies/lm740/module-bt2-1-class1-csr-bc05/dp/2102737 LM-Techologies LM740: Bluetooth Multimedia module]
+   * external antenna
+   * limited range: 25m open space
+   * 4dBm=2.5mW output power (Class 2)/ -82dBm sensitivity
+   * 30mA-40mA current consumption
+   * analog audio interface
   * [http://be.farnell.com/bluegiga/wt32-a-ai/bluetooth-module-wt32-audio-iwrap/dp/1656897 BLUEGIGA - WT32-A-AI - BLUETOOTH MODULE, WT32, AUDIO, IWRAP]
    * Expensive: €70
    * 7dBM output power / -86dBm sensitivity
    * 7-70mA current consumption.
    * has analog audio interface
+   * SPP, DUN, OBEX OPP, HFP (v.1.5) A2DP, AVRCP, DID and HID
+  * [http://www.kcwirefree.com/audio.html KC-Wirefree modules]
+   * Where can they be bought?
   * [http://be.farnell.com/anaren/a8520e24a91gm/radio-module-txrx-cc8520-int-ant/dp/2096157 ANAREN - A8520E24A91GM: Bluetooth Audio module]
    * internal antenna 
    * 150m range outside, 30m range inside
@@ -51,11 +69,6 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
    * limited range: 10m
    * 4dBm=2.5mW output power (Class 2)/ -85dBm sensitivity
    * 30mA current consumption
-  * [http://be.farnell.com/lm-technologies/lm740/module-bt2-1-class1-csr-bc05/dp/2102737 LM-Techologies LM740: Bluetooth Multimedia module]
-   * external antenna
-   * limited range: 25m open space
-   * 4dBm=2.5mW output power (Class 2)/ -82dBm sensitivity
-   * 30mA-40mA current consumption
  * Z-Wave
   * Too slow (only 40kbps)
  * ISM-Band sub 1GHz: Proprietary protocols
