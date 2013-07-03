@@ -18,6 +18,7 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
   * Three types of devices: coordinators, routers & endpoints
   * [http://be.farnell.com/jennic/jn5139-z01-m01r1v/zigbee-mod-2-4ghz-uart-sma-conn/dp/1500176 Jennic JN513x]
    * There is a [http://www.jennic.com/support/support_files/jn-rd-6004_wireless_audio_reference_design wireless audio reference design] for this
+   * I²S audio interface
  * Zigbee Pro
   * Zigbee pro offers multicasting, sharing secret keys.
   * Zigbee pro is backwards compatible with Zigbee
@@ -32,11 +33,18 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
  * Bluetooth
   * Slow wakeup from sleep (typically 3 seconds)
   * Originally designed to replace RS232 cables -> simple implementation.
+  * [http://be.farnell.com/bluegiga/wt32-a-ai/bluetooth-module-wt32-audio-iwrap/dp/1656897 BLUEGIGA - WT32-A-AI - BLUETOOTH MODULE, WT32, AUDIO, IWRAP]
+   * Expensive: €70
+   * 7dBM output power / -86dBm sensitivity
+   * 7-70mA current consumption.
+   * has analog audio interface
   * [http://be.farnell.com/anaren/a8520e24a91gm/radio-module-txrx-cc8520-int-ant/dp/2096157 ANAREN - A8520E24A91GM: Bluetooth Audio module]
    * internal antenna 
    * 150m range outside, 30m range inside
    * 16dBm=40mW output power (Class 1)/ -87dBm sensitivity
    * 48mA current consumption
+   * I²S interface
+   * To check if TI-PurePath supports two way audio transport for CC8520
    * Evaluation board available: [http://be.farnell.com/anaren/a8520e24a91-em2/eval-module-a8520e24a91-audio/dp/2096139?in_merch=true&MER=i-9b10-00001460 A8520E24A91-EM2]
   * [http://be.farnell.com/microchip/rn52-i-rm/module-rn52-bluetooth-3-0-audio/dp/2291925 Roving Network RN-52: Bluetooth Audio Module]
    * internal antenna
