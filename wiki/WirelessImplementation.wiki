@@ -13,23 +13,7 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
   * 81 bytes/packet available for upper OSI-layers
   * 2.4GHz-band -> 250kbps (over the air rate)
   * 868MHz-band -> 20kbps (over the air rate)
- * Zigbee
-  * Uses IEEE802.15.4 for the lower OSI-layers
-  * Three types of devices: coordinators, routers & endpoints
-  * [http://be.farnell.com/jennic/jn5139-z01-m01r1v/zigbee-mod-2-4ghz-uart-sma-conn/dp/1500176 Jennic JN513x]
-   * There is a [http://www.jennic.com/support/support_files/jn-rd-6004_wireless_audio_reference_design wireless audio reference design] for this
-   * I²S audio interface
- * Zigbee Pro
-  * Zigbee pro offers multicasting, sharing secret keys.
-  * Zigbee pro is backwards compatible with Zigbee
- * RF4CE
-  * Uses IEEE802.15.4 for the lower OSI-layers
-  * Designed to replace remote controls, but it has already been used to make phone calls with it.  See [http://www.google.be/url?sa=t&source=web&cd=1&ved=0CB4QtwIwAA&url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DNhzwm5vgUPc&ei=KADcTYyNNcqeOuTuyfcO&usg=AFQjCNHdgcaPxPAbvCjx5rINE4rpEvgiiw YouTube].
-  * Supported by different manufacturers: TI (RemoTI), FreeScale (Beestack Consumer), Renesas, [http://www.st.com/internet/evalboard/product/247094.jsp ST], ...
-  * Smaller code size than Zigbee (because mesh-networking is not needed)
- * DASH7
-  * Very new, nothing available yet (anno 2011)
-  * DASH7 module 500kbps over-the-air at 433MHz (only one module found)
+
  * Bluetooth
   * Slow wakeup from sleep (typically 3 seconds)
   * Originally designed to replace RS232 cables -> simple implementation.
@@ -39,8 +23,12 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
    * 4dBm output power / -86dBm sensitivity
    * 70mA current consumption max.
    * CSR's apt-X codec
-   * HSP, HFP, A2DP, and AVRCP Bluetooth audio profiles
-   * SPP (Bluetooth Serial port profile)
+   * Supported Bluetooth profiles: 
+    * HSP: Headset profile
+    * HFP: Handsfree profile: gives more features than HSP
+    * A2DP: audio distribution profile: for connection of stereo headset
+    * AVRCP: Audio/Video Remote Control Profile
+    * SPP: Serial port profile)
    * [http://www.lairdtech.com/Products/Embedded-Wireless-Solutions/Bluetooth-Radio-Modules/BTM51x-Modules/ Info]
   * [http://be.farnell.com/lm-technologies/lm740/module-bt2-1-class1-csr-bc05/dp/2102737 LM-Techologies LM740: Bluetooth Multimedia module]
    * external antenna
@@ -53,7 +41,16 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
    * 7dBM output power / -86dBm sensitivity
    * 7-70mA current consumption.
    * has analog audio interface
-   * SPP, DUN, OBEX OPP, HFP (v.1.5) A2DP, AVRCP, DID and HID
+   * Supported profiles: 
+    * SPP
+    * DUN: Dial up networking
+    * OBEX: Object exchange
+    * OPP:Object Push Profile
+    * HFP (v.1.5) 
+    * A2DP
+    * AVRCP
+    * DID (?)
+    * HID: Human Interface Device Profile
   * [http://www.kcwirefree.com/audio.html KC-Wirefree modules]
    * Where can they be bought?
   * [http://be.farnell.com/anaren/a8520e24a91gm/radio-module-txrx-cc8520-int-ant/dp/2096157 ANAREN - A8520E24A91GM: Bluetooth Audio module]
@@ -69,8 +66,31 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
    * limited range: 10m
    * 4dBm=2.5mW output power (Class 2)/ -85dBm sensitivity
    * 30mA current consumption
+
+ * Zigbee
+  * Uses IEEE802.15.4 for the lower OSI-layers
+  * Three types of devices: coordinators, routers & endpoints
+  * [http://be.farnell.com/jennic/jn5139-z01-m01r1v/zigbee-mod-2-4ghz-uart-sma-conn/dp/1500176 Jennic JN513x]
+   * There is a [http://www.jennic.com/support/support_files/jn-rd-6004_wireless_audio_reference_design wireless audio reference design] for this
+   * I²S audio interface
+
+ * Zigbee Pro
+  * Zigbee pro offers multicasting, sharing secret keys.
+  * Zigbee pro is backwards compatible with Zigbee
+
+ * RF4CE
+  * Uses IEEE802.15.4 for the lower OSI-layers
+  * Designed to replace remote controls, but it has already been used to make phone calls with it.  See [http://www.google.be/url?sa=t&source=web&cd=1&ved=0CB4QtwIwAA&url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DNhzwm5vgUPc&ei=KADcTYyNNcqeOuTuyfcO&usg=AFQjCNHdgcaPxPAbvCjx5rINE4rpEvgiiw YouTube].
+  * Supported by different manufacturers: TI (RemoTI), FreeScale (Beestack Consumer), Renesas, [http://www.st.com/internet/evalboard/product/247094.jsp ST], ...
+  * Smaller code size than Zigbee (because mesh-networking is not needed)
+
+ * DASH7
+  * Very new, nothing available yet (anno 2011)
+  * DASH7 module 500kbps over-the-air at 433MHz (only one module found)
+
  * Z-Wave
   * Too slow (only 40kbps)
+
  * ISM-Band sub 1GHz: Proprietary protocols
   * [http://shop.ciseco.co.uk/arf-high-power-radio-transceiver/ Ciseco ARF]:
    * ISM Band (868MHz & 915MHz)
