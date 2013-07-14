@@ -17,6 +17,18 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
  * Bluetooth
   * Slow wakeup from sleep (typically 3 seconds)
   * Originally designed to replace RS232 cables -> simple implementation.
+
+  * [http://www.mouser.com/ds/2/349/RN52%20DATASHEET-1.0r-221751.pdf RN52 Bluetooth Audio Module]
+   * integrated antenna
+   * has an analog audio interface
+   * Class 2 device: 4dBm / -85dBm sensitivity
+   * 30mA typical
+   * Supported Bluetooth profiles:
+    * HSP: Headset profile
+    * HFP: Handsfree profile: gives more features than HSP
+    * A2DP: audio distribution profile: for connection of stereo headset
+    * AVRCP: Audio/Video Remote Control Profile
+    * SPP: Serial port profile
   * [http://www.digikey.be/search/en/RF-IF-and-RFID/RF-Transceivers/4174?keywords=BTM511 LairdTech BTM511]
    * integrated antenna
    * has an analog audio interface
