@@ -29,6 +29,8 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
     * A2DP: audio distribution profile: for connection of stereo headset
     * AVRCP: Audio/Video Remote Control Profile
     * SPP: Serial port profile
+    * [http://www.microchip.com/wwwproducts/Devices.aspx?dDocName=en560765#documentation Microchip support for this module]
+    * [http://docs-europe.electrocomponents.com/webdocs/1200/0900766b81200c45.pdf Development kit with schematic]
   * [http://www.digikey.be/search/en/RF-IF-and-RFID/RF-Transceivers/4174?keywords=BTM511 LairdTech BTM511]
    * integrated antenna
    * has an analog audio interface
