@@ -15,9 +15,8 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
   * 868MHz-band -> 20kbps (over the air rate)
 
  * Bluetooth
-  * Slow wakeup from sleep (typically 3 seconds)
-  * Originally designed to replace RS232 cables -> simple implementation.
-
+  * The modules here below only work as a Bluetooth slave.  You need a Bluetooth master to set up a connection (e.g. a Bluetooth-enabled smart phone).  This means that it's not possible with the modules below to set up a connection from one Bluetooth module to another one of the same type.
+  * The modules below have been developed to function as a "wireless remote" for your smartphone: making phone calls, streaming music, ...
   * [http://www.mouser.com/ds/2/349/RN52%20DATASHEET-1.0r-221751.pdf RN52 Bluetooth Audio Module]
    * integrated antenna
    * has an analog audio interface
@@ -75,11 +74,6 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
    * I²S interface
    * To check if TI-PurePath supports two way audio transport for CC8520
    * Evaluation board available: [http://be.farnell.com/anaren/a8520e24a91-em2/eval-module-a8520e24a91-audio/dp/2096139?in_merch=true&MER=i-9b10-00001460 A8520E24A91-EM2]
-  * [http://be.farnell.com/microchip/rn52-i-rm/module-rn52-bluetooth-3-0-audio/dp/2291925 Roving Network RN-52: Bluetooth Audio Module]
-   * internal antenna
-   * limited range: 10m
-   * 4dBm=2.5mW output power (Class 2)/ -85dBm sensitivity
-   * 30mA current consumption
 
  * Zigbee
   * Uses IEEE802.15.4 for the lower OSI-layers
