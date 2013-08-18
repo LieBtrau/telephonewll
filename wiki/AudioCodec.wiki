@@ -58,9 +58,17 @@ There is also need of a compression algorithm.  If voice is digitized at 8kHz (8
  * Based on ACELP, very complex codec
 ===Speex===
  * [http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&nodeId=2680&dDocName=en554168 Microchip Audio Libraries]
+  * Narrowband (8KHz) and wideband (16KHz) sampling
+  * Only distributed in library format, no source code for Speex codec available.
  * For this application, Speex should be implemented with: sud-mode 4 and 11 kbps data rate to provide the best tradeoff between speech quality and computational complexity. 
  * [http://onlinepresent.org/proceedings/vol7_2012/25.pdf Voice Transmission over Wireless Sensor Networks].
  * [http://voz.sourceforge.net/ Voice Over Zigbee]
+ * [http://www.st.com/st-web-ui/static/active/en/resource/technical/document/application_note/CD00204907.pdf ST Vocoder demonstration using Speex]
+  * 8KHz sampling (=narrow band), bitrate 8kbps (quality parameter = 4) -> 16:1 compression ratio
+  * compexity parameter <= 2 
+
+===Codec2===
+ * [http://codec2.org/]
 
 ===CVSD===
  * Very simple algorithm, looks very attractive to implement
