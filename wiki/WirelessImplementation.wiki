@@ -14,23 +14,10 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
   * 2.4GHz-band -> 250kbps (over the air rate)
   * 868MHz-band -> 20kbps (over the air rate)
 
- * Bluetooth Multimedia modules: HFP/HSP
-  * The modules here below only work as a Bluetooth slave.  You need a Bluetooth master to set up a connection (e.g. a Bluetooth-enabled smart phone).  This means that it's not possible with the modules below to set up a connection from one Bluetooth module to another one of the same type.
+ * Bluetooth Multimedia modules:
+  * A2DP: streaming audio profile: some modules can be coupled so that one serves as an audio source and the other one as an audio slave.
+  * HFP/HSP: The modules here below only work as a Bluetooth slave.  You need a Bluetooth master to set up a connection (e.g. a Bluetooth-enabled smart phone).  This means that it's not possible with the modules below to set up a connection from one Bluetooth module to another one of the same type.
   * The modules below have been developed to function as a "wireless remote" for your smartphone: making phone calls, streaming music, ...
-  * [http://www.mouser.com/ds/2/349/RN52%20DATASHEET-1.0r-221751.pdf RN52 Bluetooth Audio Module]
-   * integrated antenna
-   * has an analog audio interface
-   * Class 2 device: 4dBm / -85dBm sensitivity
-   * 30mA typical
-   * Supported Bluetooth profiles:
-    * HSP: Headset profile
-    * HFP: Handsfree profile: gives more features than HSP
-    * A2DP: audio distribution profile: for connection of stereo headset
-    * AVRCP: Audio/Video Remote Control Profile
-    * SPP: Serial port profile
-    * [http://www.microchip.com/wwwproducts/Devices.aspx?dDocName=en560765#documentation Microchip support for this module]
-    * [http://docs-europe.electrocomponents.com/webdocs/1200/0900766b81200c45.pdf Development kit with schematic]
-    * Farnell: €21.68, RS: €20.03, Mouser: €18.11
   * [http://www.digikey.be/search/en/RF-IF-and-RFID/RF-Transceivers/4174?keywords=BTM511 LairdTech BTM511]
    * integrated antenna
    * has an analog audio interface
@@ -40,10 +27,25 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
    * Supported Bluetooth profiles: 
     * HSP: Headset profile
     * HFP: Handsfree profile: gives more features than HSP
-    * A2DP: audio distribution profile: for connection of stereo headset
+    * A2DP: audio distribution profile: for connection of stereo headset: both sourcing and sinking audio supported: BTM5xx to BTM5xx application supported.
     * AVRCP: Audio/Video Remote Control Profile
     * SPP: Serial port profile)
    * [http://www.lairdtech.com/Products/Embedded-Wireless-Solutions/Bluetooth-Radio-Modules/BTM51x-Modules/ Info]
+   * Prices BTM511 (integrated antenna): Farnell: €30.48, Mouser €21.91, Digikey: €21.91
+  * [http://www.mouser.com/ds/2/349/RN52%20DATASHEET-1.0r-221751.pdf RN52 Bluetooth Audio Module]
+   * integrated antenna
+   * has an analog audio interface
+   * Class 2 device: 4dBm / -85dBm sensitivity
+   * 30mA typical
+   * Supported Bluetooth profiles:
+    * HSP: Headset profile
+    * HFP: Handsfree profile: gives more features than HSP
+    * A2DP: audio distribution profile: for connection of stereo headset: only one way audio supported, so no module to module communication possible.
+    * AVRCP: Audio/Video Remote Control Profile
+    * SPP: Serial port profile
+    * [http://www.microchip.com/wwwproducts/Devices.aspx?dDocName=en560765#documentation Microchip support for this module]
+    * [http://docs-europe.electrocomponents.com/webdocs/1200/0900766b81200c45.pdf Development kit with schematic]
+    * Farnell: €21.68, RS: €20.03, Mouser: €18.11
   * [http://be.farnell.com/lm-technologies/lm740/module-bt2-1-class1-csr-bc05/dp/2102737 LM-Techologies LM740: Bluetooth Multimedia module]
    * external antenna
    * limited range: 25m open space
