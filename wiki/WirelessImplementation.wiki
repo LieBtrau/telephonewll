@@ -30,6 +30,7 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
     * SPP: Serial port profile
     * [http://www.microchip.com/wwwproducts/Devices.aspx?dDocName=en560765#documentation Microchip support for this module]
     * [http://docs-europe.electrocomponents.com/webdocs/1200/0900766b81200c45.pdf Development kit with schematic]
+    * Farnell: €21.68, RS: €20.03, Mouser: €18.11
   * [http://www.digikey.be/search/en/RF-IF-and-RFID/RF-Transceivers/4174?keywords=BTM511 LairdTech BTM511]
    * integrated antenna
    * has an analog audio interface
