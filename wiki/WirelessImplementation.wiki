@@ -32,6 +32,7 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
     * SPP: Serial port profile)
    * [http://www.lairdtech.com/Products/Embedded-Wireless-Solutions/Bluetooth-Radio-Modules/BTM51x-Modules/ Info]
    * Prices BTM511 (integrated antenna): Farnell: €30.48, Mouser €21.91, Digikey: €21.91
+  * Panasonic PAN13xx modules with chips from TI and Bluetooth software stack: Bluetopia.  This software stack must be run on the controlling processor.  Support only for MSP430 and Stellaris MCUs.
   * [http://www.mouser.com/ds/2/349/RN52%20DATASHEET-1.0r-221751.pdf RN52 Bluetooth Audio Module]
    * integrated antenna
    * has an analog audio interface
