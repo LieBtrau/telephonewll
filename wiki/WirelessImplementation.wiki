@@ -15,7 +15,7 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
   * 868MHz-band -> 20kbps (over the air rate)
 
  * Bluetooth Multimedia modules:
-  * A SCO/eSCO link is intended for bidirectional transmission of speech. The sampling rate is fixed to 8 kHz, meaning a usable bandwidth of 3.5 kHz: BTM511, BISM2, AMB2300, LM071, ...
+  * A SCO/eSCO link is intended for bidirectional transmission of speech. The sampling rate is fixed to 8 kHz, meaning a usable bandwidth of 3.5 kHz: BTM511, BISM2, AMB2300, LM071, BT730-SA (PCM-only), BTM411 (PCM-only)
   * A2DP: streaming audio profile: some modules can be coupled so that one serves as an audio source and the other one as an audio slave.
   * HFP/HSP: The modules here below only work as a Bluetooth slave.  You need a Bluetooth master to set up a connection (e.g. a Bluetooth-enabled smart phone).  This means that it's not possible with the modules below to set up a connection from one Bluetooth module to another one of the same type.
   * The modules below have been developed to function as a "wireless remote" for your smartphone: making phone calls, streaming music, ...
