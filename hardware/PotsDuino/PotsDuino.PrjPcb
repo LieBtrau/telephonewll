@@ -2,7 +2,6 @@
 Version=1.0
 HierarchyMode=4
 ChannelRoomNamingStyle=0
-OutputPath=Project Outputs for PotsDuino
 LogFolderPath=
 ReleasesFolder=
 ReleaseVaultGUID=
@@ -20,7 +19,7 @@ AllowPortNetNames=0
 AllowSheetEntryNetNames=1
 AppendSheetNumberToLocalNets=0
 NetlistSinglePinNets=0
-DefaultConfiguration=
+DefaultConfiguration=Default Configuration
 UserID=0xFFFFFFFF
 DefaultPcbProtel=1
 DefaultPcbPcad=0
@@ -96,7 +95,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 
 [Document5]
-DocumentPath=PotsDuino.Harness
+DocumentPath=Dtron.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -112,7 +111,23 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 
 [Document6]
-DocumentPath=Dtron.OutJob
+DocumentPath=PotsDuino.Harness
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+
+[Document7]
+DocumentPath=ArduinoUno.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -137,11 +152,11 @@ Variation2=Designator=R30|UniqueId=\NRPXFJBA|Kind=1|AlternatePart=
 ParamVariationCount=0
 
 [GeneratedDocument1]
-DocumentPath=Gerber\BRD111107.GBL
+DocumentPath=BRD111107.PcbDoc.htm
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Gerber\BRD111107.GTL
+DocumentPath=Output\Design Rule Check - BRD111107.html
 DItemRevisionGUID=
 
 [Parameter1]
@@ -150,7 +165,7 @@ Value=CT
 
 [Parameter2]
 Name=PCB_Nr
-Value=BRD111107/2
+Value=BRD111107/3
 
 [Parameter3]
 Name=ProjectName
@@ -158,19 +173,22 @@ Value=POTSduino
 
 [Parameter4]
 Name=RevisionNr
-Value=2.00
+Value=3.00
 
-[PCBConfiguration1]
+[Configuration1]
+Name=Default Configuration
+ParameterCount=0
+ConstraintFileCount=0
 ReleaseItemId=
 CurrentRevision=
-Name=Default Configuration
 Variant=[No Variations]
-GenerateBOM=0
+GenerateBOM=1
+OutputJobsCount=0
 
 [OutputGroup1]
 Name=Netlist Outputs
 Description=
-TargetPrinter=PDFill PDF&Image Writer
+TargetPrinter=Microsoft XPS Document Writer
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintWhat=1
 OutputType1=RINFNetlist
 OutputName1=RINF Netlist
@@ -284,21 +302,16 @@ OutputVariantName22=
 OutputDefault22=0
 Configuration22_Name1=OutputConfigurationParameter1
 Configuration22_Item1=s=False|DrillDrawingSymbol=GraphicsSymbol|DrillDrawingSymbolSize=500000|EmbeddedApertures=True|FilmBorderSize=10000000|FilmXSize=200000000|FilmYSize=160000000|FlashAllFills=False|FlashPadShapes=True|G54OnApertureChange=False|GenerateDRCRulesFile=True|GenerateReliefShapes=True|GerberUnit=Metric|IncludeUnconnectedMidLayerPads=False|LeadingAndTrailingZeroesMode=SuppressLeadingZeroes|MaxApertureSize=2500000|MinusApertureTolerance=39|Mirror.Set=SerializeLayerHash.Version~2,ClassName~TLayerToBoolean|MirrorDrillDrawingPlots=False|MirrorDrillGuidePlots=False|NumberOfDecimals=4|OptimizeChangeLocationCommands=True|OriginPosition=Relative|Panelize=False|Plot.Set=SerializeLayerHash.Version~2,ClassName~TLayerToBoolean,16973830~1,16973834~1,16777217~1,16842751~1,16973835~1|PlotPositivePlaneLayers=False|PlotUsedDrillDrawingLayerPairs=False|PlotUsedDrillGuideLayerPairs=False|PlusApertureTolerance=39|Record=GerberView|SoftwareArcs=False|Sorted=False
-OutputType23=Verilog
-OutputName23=Verilog File
+OutputType23=MultiWire
+OutputName23=MultiWire
 OutputDocumentPath23=
 OutputVariantName23=
 OutputDefault23=0
-OutputType24=VHDL
-OutputName24=VHDL File
-OutputDocumentPath24=
-OutputVariantName24=
-OutputDefault24=0
 
 [OutputGroup2]
 Name=Simulator Outputs
 Description=
-TargetPrinter=PDFill PDF&Image Writer
+TargetPrinter=Microsoft XPS Document Writer
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintWhat=1
 OutputType1=AdvSimNetlist
 OutputName1=Mixed Sim
@@ -319,7 +332,7 @@ OutputDefault3=0
 [OutputGroup3]
 Name=Documentation Outputs
 Description=
-TargetPrinter=PDFill PDF&Image Writer
+TargetPrinter=Microsoft XPS Document Writer
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintWhat=1
 OutputType1=Composite
 OutputName1=Composite Drawing
@@ -407,59 +420,11 @@ OutputDocumentPath10=
 OutputVariantName10=
 OutputDefault10=0
 PageOptions10=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=A4|PrintScaleMode=1
-OutputType11=Assembler Source Print
-OutputName11=Assembler Source Prints
-OutputDocumentPath11=
-OutputVariantName11=
-OutputDefault11=0
-PageOptions11=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=A4|PrintScaleMode=1
-OutputType12=C Source Print
-OutputName12=C Source Prints
-OutputDocumentPath12=
-OutputVariantName12=
-OutputDefault12=0
-PageOptions12=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=A4|PrintScaleMode=1
-OutputType13=C/C++ Header Print
-OutputName13=C/C++ Header Prints
-OutputDocumentPath13=
-OutputVariantName13=
-OutputDefault13=0
-PageOptions13=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=A4|PrintScaleMode=1
-OutputType14=C++ Source Print
-OutputName14=C++ Source Prints
-OutputDocumentPath14=
-OutputVariantName14=
-OutputDefault14=0
-PageOptions14=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=A4|PrintScaleMode=1
-OutputType15=Logic Analyser Print
-OutputName15=Logic Analyser Prints
-OutputDocumentPath15=
-OutputVariantName15=
-OutputDefault15=0
-PageOptions15=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=A4|PrintScaleMode=1
-OutputType16=OpenBus Print
-OutputName16=OpenBus Prints
-OutputDocumentPath16=
-OutputVariantName16=
-OutputDefault16=0
-PageOptions16=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=A4|PrintScaleMode=1
-OutputType17=Software Platform Print
-OutputName17=Software Platform Prints
-OutputDocumentPath17=
-OutputVariantName17=
-OutputDefault17=0
-PageOptions17=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=A4|PrintScaleMode=1
-OutputType18=VHDL Print
-OutputName18=VHDL Prints
-OutputDocumentPath18=
-OutputVariantName18=
-OutputDefault18=0
-PageOptions18=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=A4|PrintScaleMode=1
 
 [OutputGroup4]
 Name=Assembly Outputs
 Description=
-TargetPrinter=PDFill PDF&Image Writer
+TargetPrinter=Microsoft XPS Document Writer
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintWhat=1
 OutputType1=Assembly
 OutputName1=Assembly Drawings
@@ -481,7 +446,7 @@ OutputDefault3=0
 [OutputGroup5]
 Name=Fabrication Outputs
 Description=
-TargetPrinter=PDFill PDF&Image Writer
+TargetPrinter=Microsoft XPS Document Writer
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintWhat=1
 OutputType1=CompositeDrill
 OutputName1=Composite Drill Drawing
@@ -537,7 +502,7 @@ OutputDefault9=0
 [OutputGroup6]
 Name=Report Outputs
 Description=
-TargetPrinter=PDFill PDF&Image Writer
+TargetPrinter=Microsoft XPS Document Writer
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintWhat=1
 OutputType1=BOM_PartType
 OutputName1=Bill of Materials
@@ -574,7 +539,7 @@ OutputDefault6=0
 [OutputGroup7]
 Name=Other Outputs
 Description=
-TargetPrinter=PDFill PDF&Image Writer
+TargetPrinter=Microsoft XPS Document Writer
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintWhat=1
 OutputType1=Text Print
 OutputName1=Text Print
@@ -754,7 +719,7 @@ PageOptions29=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|Print
 [OutputGroup8]
 Name=Validation Outputs
 Description=
-TargetPrinter=PDFill PDF&Image Writer
+TargetPrinter=Microsoft XPS Document Writer
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintWhat=1
 OutputType1=Design Rules Check
 OutputName1=Design Rules Check
@@ -783,18 +748,13 @@ OutputDefault4=0
 [OutputGroup9]
 Name=Export Outputs
 Description=
-TargetPrinter=PDFill PDF&Image Writer
+TargetPrinter=Microsoft XPS Document Writer
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintWhat=1
 OutputType1=ExportSTEP
 OutputName1=Export STEP
 OutputDocumentPath1=
 OutputVariantName1=[No Variations]
 OutputDefault1=0
-OutputType2=AutoCAD dwg/dxf PCB
-OutputName2=AutoCAD dwg/dxf File PCB
-OutputDocumentPath2=
-OutputVariantName2=
-OutputDefault2=0
 
 [Modification Levels]
 Type1=1
@@ -871,6 +831,10 @@ Type71=1
 Type72=1
 Type73=1
 Type74=1
+Type75=1
+Type76=1
+Type77=1
+Type78=1
 
 [Difference Levels]
 Type1=1
@@ -913,6 +877,9 @@ Type37=1
 Type38=1
 Type39=1
 Type40=1
+Type41=1
+Type42=1
+Type43=1
 
 [Electrical Rules Check]
 Type1=1
@@ -1037,12 +1004,14 @@ L17=WNNNNNNNWNNNWWWWN
 
 [Annotate]
 SortOrder=3
+SortLocation=0
 MatchParameter1=Comment
 MatchStrictly1=1
 MatchParameter2=Library Reference
 MatchStrictly2=1
 PhysicalNamingFormat=$Component_$RoomName
 GlobalIndexSortOrder=3
+GlobalIndexSortLocation=0
 
 [PrjClassGen]
 CompClassManualEnabled=0
@@ -1057,190 +1026,124 @@ SelectedOnly=0
 PartTypes=0
 ComponentLibIdentifierKind0=Library Name And Type
 ComponentLibraryIdentifier0=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID0=1206ZC226KAT2A
-ComponentSymbolReference0=CA_NONPOL
+ComponentDesignItemID0=2N7002
+ComponentSymbolReference0=TR_NMOS
 ComponentUpdate0=1
 ComponentIsDeviceSheet0=0
 ComponentLibIdentifierKind1=Library Name And Type
 ComponentLibraryIdentifier1=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID1=2N7002
-ComponentSymbolReference1=TR_NMOS
+ComponentDesignItemID1=AG1171
+ComponentSymbolReference1=MD_AG1171
 ComponentUpdate1=1
 ComponentIsDeviceSheet1=0
 ComponentLibIdentifierKind2=Library Name And Type
 ComponentLibraryIdentifier2=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID2=67WR10KLF
-ComponentSymbolReference2=RE_TRIM
+ComponentDesignItemID2=BARE_PCB
+ComponentSymbolReference2=BD_PCB
 ComponentUpdate2=1
 ComponentIsDeviceSheet2=0
 ComponentLibIdentifierKind3=Library Name And Type
 ComponentLibraryIdentifier3=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID3=74LVC1G17W5-7
-ComponentSymbolReference3=IC_74LVC1G17
+ComponentDesignItemID3=BL5.36Z 7P MECH
+ComponentSymbolReference3=MC_MechPart
 ComponentUpdate3=1
 ComponentIsDeviceSheet3=0
 ComponentLibIdentifierKind4=Library Name And Type
 ComponentLibraryIdentifier4=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID4=826656-3
-ComponentSymbolReference4=CN_2x3P
+ComponentDesignItemID4=BTM511
+ComponentSymbolReference4=IC_BTM51x
 ComponentUpdate4=1
 ComponentIsDeviceSheet4=0
 ComponentLibIdentifierKind5=Library Name And Type
 ComponentLibraryIdentifier5=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID5=AG1171
-ComponentSymbolReference5=MD_AG1171
+ComponentDesignItemID5=CNRJ11F1-1
+ComponentSymbolReference5=CN_MODJACK_6P
 ComponentUpdate5=1
 ComponentIsDeviceSheet5=0
 ComponentLibIdentifierKind6=Library Name And Type
 ComponentLibraryIdentifier6=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID6=BARE_PCB
-ComponentSymbolReference6=BD_PCB
+ComponentDesignItemID6=DIO1N4007
+ComponentSymbolReference6=DI_DIODE
 ComponentUpdate6=1
 ComponentIsDeviceSheet6=0
 ComponentLibIdentifierKind7=Library Name And Type
 ComponentLibraryIdentifier7=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID7=C0603C562J5GACTU
-ComponentSymbolReference7=CA_NONPOL
+ComponentDesignItemID7=EEEFC1A471P
+ComponentSymbolReference7=CA_POL
 ComponentUpdate7=1
 ComponentIsDeviceSheet7=0
 ComponentLibIdentifierKind8=Library Name And Type
 ComponentLibraryIdentifier8=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID8=CC1206JRNPO9BN272
-ComponentSymbolReference8=CA_NONPOL
+ComponentDesignItemID8=ESQ-106-14-G-S
+ComponentSymbolReference8=CN_6P
 ComponentUpdate8=1
 ComponentIsDeviceSheet8=0
 ComponentLibIdentifierKind9=Library Name And Type
 ComponentLibraryIdentifier9=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID9=CNRJ11F1-1
-ComponentSymbolReference9=CN_MODJACK_6P
+ComponentDesignItemID9=ESQ-108-14-G-S
+ComponentSymbolReference9=CN_8P
 ComponentUpdate9=1
 ComponentIsDeviceSheet9=0
 ComponentLibIdentifierKind10=Library Name And Type
 ComponentLibraryIdentifier10=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID10=CRCW120616K0FKEA
-ComponentSymbolReference10=RE_RES
+ComponentDesignItemID10=MBS4
+ComponentSymbolReference10=DB_BRIDGE-RECT
 ComponentUpdate10=1
 ComponentIsDeviceSheet10=0
 ComponentLibIdentifierKind11=Library Name And Type
 ComponentLibraryIdentifier11=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID11=CRCW12069K10FKEA
-ComponentSymbolReference11=RE_RES
+ComponentDesignItemID11=MC_2LAYER_INDICATOR
+ComponentSymbolReference11=MC_MechPart_No_BOM
 ComponentUpdate11=1
 ComponentIsDeviceSheet11=0
 ComponentLibIdentifierKind12=Library Name And Type
 ComponentLibraryIdentifier12=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID12=DIO1N4007
-ComponentSymbolReference12=DI_DIODE
+ComponentDesignItemID12=SMAJ70A-TR
+ComponentSymbolReference12=DI_ZENER
 ComponentUpdate12=1
 ComponentIsDeviceSheet12=0
 ComponentLibIdentifierKind13=Library Name And Type
 ComponentLibraryIdentifier13=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID13=EEEFC1A471P
-ComponentSymbolReference13=CA_POL
+ComponentDesignItemID13=YCAM100N
+ComponentSymbolReference13=CA_NONPOL
 ComponentUpdate13=1
 ComponentIsDeviceSheet13=0
 ComponentLibIdentifierKind14=Library Name And Type
 ComponentLibraryIdentifier14=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID14=ESQ-106-14-G-S
-ComponentSymbolReference14=CN_6P
+ComponentDesignItemID14=YCAM10N
+ComponentSymbolReference14=CA_NONPOL
 ComponentUpdate14=1
 ComponentIsDeviceSheet14=0
 ComponentLibIdentifierKind15=Library Name And Type
 ComponentLibraryIdentifier15=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID15=ESQ-108-14-G-S
-ComponentSymbolReference15=CN_8P
+ComponentDesignItemID15=YCAM10U
+ComponentSymbolReference15=CA_NONPOL
 ComponentUpdate15=1
 ComponentIsDeviceSheet15=0
 ComponentLibIdentifierKind16=Library Name And Type
 ComponentLibraryIdentifier16=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID16=MBS4
-ComponentSymbolReference16=DB_BRIDGE-RECT
+ComponentDesignItemID16=YCAM15P
+ComponentSymbolReference16=CA_NONPOL
 ComponentUpdate16=1
 ComponentIsDeviceSheet16=0
 ComponentLibIdentifierKind17=Library Name And Type
 ComponentLibraryIdentifier17=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID17=MC_2LAYER_INDICATOR
-ComponentSymbolReference17=MC_MechPart_No_BOM
+ComponentDesignItemID17=YCAM1N-4
+ComponentSymbolReference17=CA_NONPOL
 ComponentUpdate17=1
 ComponentIsDeviceSheet17=0
 ComponentLibIdentifierKind18=Library Name And Type
 ComponentLibraryIdentifier18=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID18=MCMR12X1302FTL
-ComponentSymbolReference18=RE_RES
+ComponentDesignItemID18=YDIOBAT54-1
+ComponentSymbolReference18=DI_SCHOTTKY_2_CC
 ComponentUpdate18=1
 ComponentIsDeviceSheet18=0
 ComponentLibIdentifierKind19=Library Name And Type
 ComponentLibraryIdentifier19=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID19=MCP4921-E/SN
-ComponentSymbolReference19=IC_MCP4921
+ComponentDesignItemID19=YRES10K
+ComponentSymbolReference19=RE_RES
 ComponentUpdate19=1
 ComponentIsDeviceSheet19=0
-ComponentLibIdentifierKind20=Library Name And Type
-ComponentLibraryIdentifier20=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID20=MCP6024-I/SL
-ComponentSymbolReference20=IC_OPAMP_QUAD
-ComponentUpdate20=1
-ComponentIsDeviceSheet20=0
-ComponentLibIdentifierKind21=Library Name And Type
-ComponentLibraryIdentifier21=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID21=RC1206FR-07220KL
-ComponentSymbolReference21=RE_RES
-ComponentUpdate21=1
-ComponentIsDeviceSheet21=0
-ComponentLibIdentifierKind22=Library Name And Type
-ComponentLibraryIdentifier22=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID22=SMAJ70A-TR
-ComponentSymbolReference22=DI_ZENER
-ComponentUpdate22=1
-ComponentIsDeviceSheet22=0
-ComponentLibIdentifierKind23=Library Name And Type
-ComponentLibraryIdentifier23=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID23=YCAM100N
-ComponentSymbolReference23=CA_NONPOL
-ComponentUpdate23=1
-ComponentIsDeviceSheet23=0
-ComponentLibIdentifierKind24=Library Name And Type
-ComponentLibraryIdentifier24=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID24=YCAM10N
-ComponentSymbolReference24=CA_NONPOL
-ComponentUpdate24=1
-ComponentIsDeviceSheet24=0
-ComponentLibIdentifierKind25=Library Name And Type
-ComponentLibraryIdentifier25=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID25=YCAM1N-4
-ComponentSymbolReference25=CA_NONPOL
-ComponentUpdate25=1
-ComponentIsDeviceSheet25=0
-ComponentLibIdentifierKind26=Library Name And Type
-ComponentLibraryIdentifier26=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID26=YDIZTL431
-ComponentSymbolReference26=IC_TL431
-ComponentUpdate26=1
-ComponentIsDeviceSheet26=0
-ComponentLibIdentifierKind27=Library Name And Type
-ComponentLibraryIdentifier27=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID27=YRES100E
-ComponentSymbolReference27=RE_RES
-ComponentUpdate27=1
-ComponentIsDeviceSheet27=0
-ComponentLibIdentifierKind28=Library Name And Type
-ComponentLibraryIdentifier28=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID28=YRES10K
-ComponentSymbolReference28=RE_RES
-ComponentUpdate28=1
-ComponentIsDeviceSheet28=0
-ComponentLibIdentifierKind29=Library Name And Type
-ComponentLibraryIdentifier29=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID29=YRES1K
-ComponentSymbolReference29=RE_RES
-ComponentUpdate29=1
-ComponentIsDeviceSheet29=0
-ComponentLibIdentifierKind30=Library Name And Type
-ComponentLibraryIdentifier30=Testing.DbLib/Testing_SchLib
-ComponentDesignItemID30=YRES470E
-ComponentSymbolReference30=RE_RES
-ComponentUpdate30=1
-ComponentIsDeviceSheet30=0
 FullReplace=1
 UpdateDesignatorLock=1
 UpdatePartIDLock=1
@@ -1272,62 +1175,50 @@ ParameterUpdate7=1
 ModelTypeGroup0=PCBLIB
 ModelTypeUpdate0=1
 ModelType0=PCBLIB
-ModelName0=CA_0603
+ModelName0=CA_1206
 ModelUpdate0=1
 ModelType1=PCBLIB
-ModelName1=CA_1206
+ModelName1=CA_1206_H16
 ModelUpdate1=1
 ModelType2=PCBLIB
-ModelName2=CA_1206_H16
+ModelName2=CA_CANSMD103_H100
 ModelUpdate2=1
 ModelType3=PCBLIB
-ModelName3=CA_CANSMD103_H100
+ModelName3=CN_MODJACK_6P
 ModelUpdate3=1
 ModelType4=PCBLIB
-ModelName4=CN_HDR2X3
+ModelName4=CN_SAMTEC_ESQ-106-14-G-S
 ModelUpdate4=1
 ModelType5=PCBLIB
-ModelName5=CN_MODJACK_6P
+ModelName5=CN_SAMTEC_ESQ-108-14-G-S
 ModelUpdate5=1
 ModelType6=PCBLIB
-ModelName6=CN_SAMTEC_ESQ-106-14-G-S
+ModelName6=CN_TOP_ENTRY_SOCKET_7P_NOHOLES
 ModelUpdate6=1
 ModelType7=PCBLIB
-ModelName7=CN_SAMTEC_ESQ-108-14-G-S
+ModelName7=DI_DO-214AC
 ModelUpdate7=1
 ModelType8=PCBLIB
-ModelName8=DI_DO-214AC
+ModelName8=DI_DO-41
 ModelUpdate8=1
 ModelType9=PCBLIB
-ModelName9=DI_DO-41
+ModelName9=MC_2LAYER_INDICATOR
 ModelUpdate9=1
 ModelType10=PCBLIB
-ModelName10=MC_2LAYER_INDICATOR
+ModelName10=MD_AG1171
 ModelUpdate10=1
 ModelType11=PCBLIB
-ModelName11=MD_AG1171
+ModelName11=RE_1206
 ModelUpdate11=1
 ModelType12=PCBLIB
-ModelName12=RE_1206
+ModelName12=SC_BTM511_BOTTOM_UP
 ModelUpdate12=1
 ModelType13=PCBLIB
-ModelName13=RE_TRIM_BOURNS_67W
+ModelName13=SC_SO4
 ModelUpdate13=1
 ModelType14=PCBLIB
-ModelName14=SC_SO4
+ModelName14=SC_SOT23
 ModelUpdate14=1
-ModelType15=PCBLIB
-ModelName15=SC_SOIC14
-ModelUpdate15=1
-ModelType16=PCBLIB
-ModelName16=SC_SOIC8
-ModelUpdate16=1
-ModelType17=PCBLIB
-ModelName17=SC_SOT23
-ModelUpdate17=1
-ModelType18=PCBLIB
-ModelName18=SC_SOT23-5AM
-ModelUpdate18=1
 
 [DatabaseUpdateOptions]
 SelectedOnly=0
