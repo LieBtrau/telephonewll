@@ -66,6 +66,9 @@ Revision_ 2_
  * [http://telephonewll.googlecode.com/files/BRD111107_2.JPG Picture]
  * [http://telephonewll.googlecode.com/files/BRD111107_R2.00.PDF Design data]
 
+Revision_ 3_
+ * [http://telephonewll.googlecode.com/files/BRD111107_3.PDF Design data]
+
 =Baseboard=
 Several options possible:
  * [http://www.arduino.cc/ Arduino]
