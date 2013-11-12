@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{9344bdbb-3e7f-41fc-a0dd-8665d75ee146}") = "Packages", "Packages.mdproj", "{40C1921C-5D11-4731-8D07-685DF547F0EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadData", "ReadData\ReadData.csproj", "{84FEAB5E-16E8-4454-AC65-81D181A64699}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40C1921C-5D11-4731-8D07-685DF547F0EE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{40C1921C-5D11-4731-8D07-685DF547F0EE}.Release|x86.ActiveCfg = Release|Any CPU
+		{84FEAB5E-16E8-4454-AC65-81D181A64699}.Debug|x86.ActiveCfg = Debug|x86
+		{84FEAB5E-16E8-4454-AC65-81D181A64699}.Debug|x86.Build.0 = Debug|x86
+		{84FEAB5E-16E8-4454-AC65-81D181A64699}.Release|x86.ActiveCfg = Release|x86
+		{84FEAB5E-16E8-4454-AC65-81D181A64699}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = ReadData\ReadData.csproj
+	EndGlobalSection
+EndGlobal
