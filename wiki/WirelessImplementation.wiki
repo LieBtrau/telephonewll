@@ -33,6 +33,10 @@ All the other modules only accept digital data, so they need an extra ADC/DAC an
     * SPP: Serial port profile)
    * [http://www.lairdtech.com/Products/Embedded-Wireless-Solutions/Bluetooth-Radio-Modules/BTM51x-Modules/ Info]
    * Prices BTM511 (integrated antenna): Farnell: €30.48, Mouser €21.91, Digikey: €21.91
+  * [http://www.electrodragon.com/w/images/4/4b/BLK-MD-SPK-B_AT_Commands_OVC3860_List.pdf OmniVision OVC3860]
+   * [http://avrproject.ru/ovc3860/OVC3860.pdf Preliminary datasheet]
+   * [https://www.bluetooth.org/tpg/QLI_viewQDL.cfm?qid=18689 Bluetooth SIG Member Website]
+   * [http://www.banggood.com/SPK-B-OVC3860-Stereo-Audio-Bluetooth-Speaker-Module-A2DP-AVRCP-p-91851.html Bang good distributor]
   * Panasonic PAN13xx modules with chips from TI and Bluetooth software stack: Bluetopia.  This software stack must be run on the controlling processor.  Support only for MSP430 and Stellaris MCUs.
   * [http://www.mouser.com/ds/2/349/RN52%20DATASHEET-1.0r-221751.pdf RN52 Bluetooth Audio Module]
    * integrated antenna
