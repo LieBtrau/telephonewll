@@ -1,0 +1,10 @@
+./
+/home/christoph/Programs/arduino-1.5.2/hardware/arduino/cores/arduino
+/home/christoph/Programs/arduino-1.5.2/libraries/LiquidCrystal
+
+// Includes for Arduino Due
+/home/christoph/Programs/arduino-1.5.2/hardware/arduino/sam/system/libsam
+/home/christoph/Programs/arduino-1.5.2/hardware/arduino/sam/system/CMSIS/CMSIS/Include
+/home/christoph/Programs/arduino-1.5.2/hardware/arduino/sam/system/CMSIS/Device/ATMEL/
+/home/christoph/Programs/arduino-1.5.2/hardware/arduino/sam/cores/arduino
+/home/christoph/Programs/arduino-1.5.2/hardware/arduino/sam/variants/arduino_due_x
