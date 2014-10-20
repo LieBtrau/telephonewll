@@ -5,7 +5,11 @@
 #include "Arduino.h"
 #include "ttimer.h"
 
+#if defined(__arm__)
 BTM51X::BTM51X(USARTClass& ser){
+#elif defined(__AVR__)
+BTM51X::BTM51X(AltSoftSerial& ser){
+#endif    
     _ser=&ser;
     _ps=STARTHDR;
     _slcState=UNKNOWN1;
@@ -58,6 +62,8 @@ BTM51X::SM_STATE BTM51X::readLine(){
             return EVENT;
         case PACKET:
             return PACKET;
+        default:
+            return NOPE;
         }
     }
     return NOPE;
@@ -171,6 +177,7 @@ BTM51X::SM_STATE BTM51X::incomingDataStateMachine(char c){
         state = PACKET_STARTED;
         return NOPE;
     }//switch
+    return NOPE;
 }
 
 
@@ -308,7 +315,7 @@ bool BTM51X::call(const String& sNumber){
             Serial.println("true");
             return true;
         }
-        for(int i=0;i<_strRespBufferBT.length();i++){
+        for(byte i=0;i<_strRespBufferBT.length();i++){
             Serial.print(_strRespBufferBT.charAt(i), DEC);
             Serial.print(" ");
             Serial.println("false");
@@ -337,6 +344,8 @@ bool BTM51X::readPacket(){
             return true;
         case EVENT:
             parseEvents(event1);
+            break;
+        default:
             break;
         }
     }

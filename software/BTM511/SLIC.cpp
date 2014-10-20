@@ -114,4 +114,5 @@ Slic::RINGING_STATE Slic::updateRinging(RINGING_STATE state){
         }
         return PAUSE;
     }
+    return state;
 }
