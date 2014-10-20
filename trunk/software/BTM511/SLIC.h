@@ -29,16 +29,16 @@ public:
     void powerUp();
 private:
     RINGING_STATE updateRinging(RINGING_STATE state);
+    InfoTone _dDialTone;
+    RotaryDialer _rd;
+    TTimer _timer;
+    RINGING_STATE _ringRmState;
+    bool _bRingingBusy;
     byte _pinFR;//forward reverse loop voltage switcher
     byte _pinRM;//enable voltage source for ringing generator
     byte _pinSHK;//high=off hook, low=on hook
     byte _pinPD;//power down
-    RINGING_STATE _ringRmState;
     byte _yPeriodCounter;
-    RotaryDialer _rd;
-    InfoTone _dDialTone;
-    TTimer _timer;
-    bool _bRingingBusy;
 };
 
 #endif // SLIC_H

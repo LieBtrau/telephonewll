@@ -1,7 +1,9 @@
 #ifndef btm51x_h
 #define btm51x_h
 #include "Arduino.h"
-
+#if defined(__AVR__)
+#include <AltSoftSerial.h>
+#endif
 class BTM51X{
 public:
     typedef enum {
@@ -50,7 +52,12 @@ public:
         LED_BLINKING,
         LED_PULSING
     }LED_STATE;
+    #if defined(__arm__)
     BTM51X(USARTClass& ser);
+    #elif defined(__AVR__)
+    BTM51X(AltSoftSerial& ser);
+    #endif
+    
     void begin();
     bool phoneConnectionState(HFP_STATE& hfp);
     bool getEvents(EVENTS& event);
@@ -67,7 +74,11 @@ private:
     bool parseEvents(EVENTS& event);
     SM_STATE incomingDataStateMachine(char c);
     bool requestRespond(const String& inBuffer);
+    #if defined(__arm__)
     USARTClass* _ser;
+    #elif defined(__AVR__)
+    AltSoftSerial* _ser;
+    #endif
     String _strRespBufferBT;
     PACKET_STATE _ps;
     PAIRING_STATE _pairState;
