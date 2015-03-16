@@ -1,0 +1,1 @@
+To install, follow instructions on: http://www.chipkit.cc/wiki/index.php?title=MPIDE_Installation
